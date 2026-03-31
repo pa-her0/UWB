@@ -79,7 +79,7 @@ bool DockerManager::isDockerAvailable() const
 void DockerManager::executeCommand(const QString &command, const QStringList &args)
 {
     if (_process->state() != QProcess::NotRunning) {
-        emit statusMessage(tr("Previous command still running..."));
+        emit statusMessage(tr("Previous command still running, please wait..."));
         return;
     }
 
@@ -279,5 +279,13 @@ void DockerManager::onReadyReadStandardError()
 {
     QByteArray output = _process->readAllStandardError();
     QString text = QString::fromUtf8(output);
-    emit error(text.trimmed());
+
+    // Docker 将下载进度输出到 stderr，这不是真正的错误
+    if (text.contains("Downloading") || text.contains("Pulling") ||
+        text.contains("Download complete") || text.contains("Pull complete") ||
+        text.contains("Already exists") || text.contains("Extracting")) {
+        emit statusMessage(text.trimmed());
+    } else {
+        emit error(text.trimmed());
+    }
 }

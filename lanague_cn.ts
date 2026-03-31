@@ -699,4 +699,510 @@
         <translation>自标定说明</translation>
     </message>
 </context>
+<context>
+    <name>UwbDataVizWidget</name>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="14"/>
+        <source>UWB Data Visualization</source>
+        <translation>UWB 数据可视化</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="35"/>
+        <source>Query Configuration</source>
+        <translation>查询配置</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="56"/>
+        <source>Docker Environment</source>
+        <translation>Docker 环境</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="64"/>
+        <source>Init DB</source>
+        <translation>初始化数据库</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="67"/>
+        <source>Initialize InfluxDB Docker environment</source>
+        <translation>初始化 InfluxDB Docker 环境</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="74"/>
+        <source>Start</source>
+        <translation>启动</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="81"/>
+        <source>Stop</source>
+        <translation>停止</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="90"/>
+        <source>Status: Not running</source>
+        <translation>状态: 未运行</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="103"/>
+        <source>Database Connection</source>
+        <translation>数据库连接</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="112"/>
+        <source>URL:</source>
+        <translation>URL:</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="122"/>
+        <source>http://localhost:8086 or https://cloud url</source>
+        <translation>http://localhost:8086 或 https://云地址</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="125"/>
+        <source>Local: http://localhost:8086
+Remote: http://server-ip:8086
+Cloud: https://us-east-1-1.aws.cloud2.influxdata.com</source>
+        <translation>本地: http://localhost:8086
+远程: http://服务器IP:8086
+云端: https://us-east-1-1.aws.cloud2.influxdata.com</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="134"/>
+        <source>Token:</source>
+        <translation>Token:</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="151"/>
+        <source>Org:</source>
+        <translation>组织:</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="165"/>
+        <source>Bucket:</source>
+        <translation>存储桶:</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="179"/>
+        <source>Measurement:</source>
+        <translation>测量项:</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="196"/>
+        <source>Tip: Can use local Docker, remote server, or InfluxDB Cloud</source>
+        <translation>提示: 可使用本地 Docker、远程服务器或 InfluxDB 云服务</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="211"/>
+        <source>Test Connection</source>
+        <translation>测试连接</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="225"/>
+        <source>Not connected</source>
+        <translation>未连接</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="244"/>
+        <source>Query Parameters</source>
+        <translation>查询参数</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="250"/>
+        <source>Tag ID:</source>
+        <translation>标签 ID:</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="272"/>
+        <source>Refresh</source>
+        <translation>刷新</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="281"/>
+        <source>Refresh available tags from database</source>
+        <translation>从数据库刷新可用标签</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="290"/>
+        <source>Start Time:</source>
+        <translation>开始时间:</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="307"/>
+        <source>End Time:</source>
+        <translation>结束时间:</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="327"/>
+        <source>Display Options</source>
+        <translation>显示选项</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="333"/>
+        <source>Show Anchors</source>
+        <translation>显示基站</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="343"/>
+        <source>Show Grid</source>
+        <translation>显示网格</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="355"/>
+        <source>Reset View</source>
+        <translation>重置视图</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="369"/>
+        <source>Query</source>
+        <translation>查询</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="395"/>
+        <source>Real-time Write</source>
+        <translation>实时写入</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="401"/>
+        <source>Enable real-time write to InfluxDB</source>
+        <translation>启用实时写入 InfluxDB</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="404"/>
+        <source>Automatically write incoming UWB data to InfluxDB</source>
+        <translation>自动将接收到的 UWB 数据写入 InfluxDB</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="414"/>
+        <source>Export</source>
+        <translation>导出</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="420"/>
+        <source>Export CSV</source>
+        <translation>导出 CSV</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="427"/>
+        <source>Export Image</source>
+        <translation>导出图片</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="469"/>
+        <source>Trajectory View</source>
+        <translation>轨迹视图</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="511"/>
+        <source>Data Table</source>
+        <translation>数据表</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="531"/>
+        <source>Time</source>
+        <translation>时间</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="536"/>
+        <source>Tag ID</source>
+        <translation>标签 ID</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="541"/>
+        <source>X (m)</source>
+        <translation>X (米)</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="546"/>
+        <source>Y (m)</source>
+        <translation>Y (米)</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="551"/>
+        <source>Z (m)</source>
+        <translation>Z (米)</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="556"/>
+        <source>Roll</source>
+        <translation>横滚角</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="561"/>
+        <source>Pitch</source>
+        <translation>俯仰角</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="566"/>
+        <source>Yaw</source>
+        <translation>偏航角</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.ui" line="571"/>
+        <source>Rx Power</source>
+        <translation>接收功率</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="59"/>
+        <source>Docker not installed</source>
+        <translation>Docker 未安装</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="64"/>
+        <source>Docker is not installed. Please install Docker or use external InfluxDB.</source>
+        <translation>Docker 未安装。请安装 Docker 或使用外部 InfluxDB。</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="70"/>
+        <source>Docker Not Found</source>
+        <translation>未找到 Docker</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="71"/>
+        <source>Docker is not detected on this system.
+
+You have the following options:
+
+1. Install Docker Desktop (recommended for beginners):
+   https://www.docker.com/products/docker-desktop
+
+2. Use an external InfluxDB server:
+   - Enter the URL of an existing InfluxDB instance
+   - Or use InfluxDB Cloud (free tier available)
+
+3. Install InfluxDB directly without Docker:
+   https://docs.influxdata.com/influxdb/latest/install/
+
+The software will continue to work with CSV files only.</source>
+        <translation>系统未检测到 Docker。
+
+您有以下选择:
+
+1. 安装 Docker Desktop (推荐初学者):
+   https://www.docker.com/products/docker-desktop
+
+2. 使用外部 InfluxDB 服务器:
+   - 输入现有 InfluxDB 实例的 URL
+   - 或使用 InfluxDB 云服务 (有免费版)
+
+3. 直接安装 InfluxDB 而不使用 Docker:
+   https://docs.influxdata.com/influxdb/latest/install/
+
+软件将继续仅支持 CSV 文件功能。</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="84"/>
+        <source>Status: Docker available</source>
+        <translation>状态: Docker 可用</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="213"/>
+        <source>Testing connection...</source>
+        <translation>正在测试连接...</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="219"/>
+        <source>Connected</source>
+        <translation>已连接</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="221"/>
+        <source>Connection successful</source>
+        <translation>连接成功</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="226"/>
+        <source>Failed</source>
+        <translation>失败</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="228"/>
+        <source>Connection failed: %1</source>
+        <translation>连接失败: %1</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="251"/>
+        <source>Found %1 tag(s)</source>
+        <translation>找到 %1 个标签</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="253"/>
+        <source>No tags found</source>
+        <translation>未找到标签</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="261"/>
+        <source>Warning</source>
+        <translation>警告</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="261"/>
+        <source>Please select a tag</source>
+        <translation>请选择标签</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="269"/>
+        <source>Start time must be before end time</source>
+        <translation>开始时间必须早于结束时间</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="282"/>
+        <source>Querying data...</source>
+        <translation>正在查询数据...</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="291"/>
+        <source>Loaded %1 points</source>
+        <translation>已加载 %1 个数据点</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="306"/>
+        <source>Error: %1</source>
+        <translation>错误: %1</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="307"/>
+        <source>Query Error</source>
+        <translation>查询错误</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="376"/>
+        <source>No data to export</source>
+        <translation>没有数据可导出</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="388"/>
+        <source>Cannot open file for writing</source>
+        <translation>无法打开文件进行写入</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="408"/>
+        <source>Exported to %1</source>
+        <translation>已导出到 %1</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="422"/>
+        <source>Image saved to %1</source>
+        <translation>图片已保存到 %1</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="424"/>
+        <source>Failed to save image</source>
+        <translation>保存图片失败</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="499"/>
+        <source>Initialize Database</source>
+        <translation>初始化数据库</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="500"/>
+        <source>This will create a new InfluxDB Docker environment.
+Default: Org=uwb-lab, Bucket=uwb, Token=local-dev-token
+
+Continue?</source>
+        <translation>这将创建一个新的 InfluxDB Docker 环境。
+默认: 组织=uwb-lab, 存储桶=uwb, Token=local-dev-token
+
+是否继续?</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="514"/>
+        <source>Initializing InfluxDB...</source>
+        <translation>正在初始化 InfluxDB...</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="515"/>
+        <source>Status: Initializing...</source>
+        <translation>状态: 正在初始化...</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="521"/>
+        <source>Starting InfluxDB Docker...</source>
+        <translation>正在启动 InfluxDB Docker...</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="527"/>
+        <source>Stopping InfluxDB Docker...</source>
+        <translation>正在停止 InfluxDB Docker...</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="533"/>
+        <source>Status: Running</source>
+        <translation>状态: 运行中</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="538"/>
+        <source>Status: Stopped</source>
+        <translation>状态: 已停止</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="552"/>
+        <source>Docker Error: %1</source>
+        <translation>Docker 错误: %1</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="553"/>
+        <source>Docker Error</source>
+        <translation>Docker 错误</translation>
+    </message>
+    <message>
+        <location filename="network/DockerManager.cpp" line="82"/>
+        <source>Previous command still running, please wait...</source>
+        <translation>上一命令仍在运行，请稍候...</translation>
+    </message>
+    <message>
+        <location filename="network/DockerManager.cpp" line="101"/>
+        <source>Executing: %1 %2</source>
+        <translation>正在执行: %1 %2</translation>
+    </message>
+    <message>
+        <location filename="network/DockerManager.cpp" line="182"/>
+        <source>Created default docker-compose.yml</source>
+        <translation>已创建默认 docker-compose.yml</translation>
+    </message>
+    <message>
+        <location filename="network/DockerManager.cpp" line="211"/>
+        <source>Created initialization docker-compose.yml</source>
+        <translation>已创建初始化 docker-compose.yml</translation>
+    </message>
+    <message>
+        <location filename="network/DockerManager.cpp" line="223"/>
+        <source>Command completed successfully</source>
+        <translation>命令执行成功</translation>
+    </message>
+    <message>
+        <location filename="network/DockerManager.cpp" line="233"/>
+        <source>Command failed with exit code %1</source>
+        <translation>命令执行失败，退出码 %1</translation>
+    </message>
+    <message>
+        <location filename="network/DockerManager.cpp" line="244"/>
+        <source>Docker command failed to start. Is Docker installed?</source>
+        <translation>Docker 命令启动失败。是否已安装 Docker？</translation>
+    </message>
+    <message>
+        <location filename="network/DockerManager.cpp" line="247"/>
+        <source>Docker command crashed</source>
+        <translation>Docker 命令崩溃</translation>
+    </message>
+    <message>
+        <location filename="network/DockerManager.cpp" line="250"/>
+        <source>Docker command timed out</source>
+        <translation>Docker 命令超时</translation>
+    </message>
+    <message>
+        <location filename="network/DockerManager.cpp" line="253"/>
+        <source>Write error</source>
+        <translation>写入错误</translation>
+    </message>
+    <message>
+        <location filename="network/DockerManager.cpp" line="256"/>
+        <source>Read error</source>
+        <translation>读取错误</translation>
+    </message>
+    <message>
+        <location filename="network/DockerManager.cpp" line="259"/>
+        <source>Unknown error occurred</source>
+        <translation>发生未知错误</translation>
+    </message>
+</context>
 </TS>
