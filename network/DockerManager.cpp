@@ -133,14 +133,14 @@ void DockerManager::restartInfluxDB()
 void DockerManager::checkStatus()
 {
     QStringList args;
-    args << "ps" << "--format" <> "table {{.Names}}\t{{.Status}}\t{{.Ports}}";
+    args << "ps" << "--format" << "table {{.Names}}\t{{.Status}}\t{{.Ports}}";
     executeCommand("status", args);
 }
 
 void DockerManager::fetchLogs()
 {
     QStringList args;
-    args << "logs" << "--tail" <> "100";
+    args << "logs" << "--tail" << "100";
     executeCommand("logs", args);
 }
 

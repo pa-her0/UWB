@@ -172,7 +172,7 @@ QStringList InfluxQueryService::parseTagListResponse(const QByteArray &data)
 {
     QStringList tags;
     QString content = QString::fromUtf8(data);
-    QStringList lines = content.split('\n', Qt::SkipEmptyParts);
+    QStringList lines = content.split('\n', QString::SkipEmptyParts);
 
     // CSV format: result,table,_value
     // Skip header line
@@ -297,7 +297,7 @@ QList<TrajectoryPoint> InfluxQueryService::parseTrajectoryResponse(const QByteAr
 {
     QList<TrajectoryPoint> points;
     QString content = QString::fromUtf8(data);
-    QStringList lines = content.split('\n', Qt::SkipEmptyParts);
+    QStringList lines = content.split('\n', QString::SkipEmptyParts);
 
     // CSV format with pivot:
     // result,table,_time,_measurement,tag_id,position_x_m,position_y_m,position_z_m,...
@@ -421,7 +421,7 @@ QList<TrajectoryPoint> InfluxQueryService::parseTelemetryResponse(const QByteArr
     // Similar to parseTrajectoryResponse but parses all fields
     QList<TrajectoryPoint> points;
     QString content = QString::fromUtf8(data);
-    QStringList lines = content.split('\n', Qt::SkipEmptyParts);
+    QStringList lines = content.split('\n', QString::SkipEmptyParts);
 
     if (lines.isEmpty()) return points;
 
