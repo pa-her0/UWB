@@ -119,7 +119,12 @@
             <string>http://localhost:8086</string>
            </property>
            <property name="placeholderText">
-            <string>http://localhost:8086</string>
+            <string>http://localhost:8086 or https://cloud url</string>
+           </property>
+           <property name="toolTip">
+            <string>Local: http://localhost:8086
+Remote: http://server-ip:8086
+Cloud: https://us-east-1-1.aws.cloud2.influxdata.com</string>
            </property>
           </widget>
          </item>
@@ -183,6 +188,19 @@
           </widget>
          </item>
         </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="dbTipLabel">
+        <property name="text">
+         <string>Tip: Can use local Docker, remote server, or InfluxDB Cloud</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: gray; font-size: 11px; font-style: italic;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
        </widget>
       </item>
       <item>

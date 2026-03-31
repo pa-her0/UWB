@@ -25,6 +25,7 @@
 #include <QDebug>
 #include <QSettings>
 #include <QDir>
+#include <QTimer>
 
 UwbDataVizWidget::UwbDataVizWidget(QWidget *parent)
     : QWidget(parent)
@@ -55,8 +56,33 @@ UwbDataVizWidget::UwbDataVizWidget(QWidget *parent)
 
     // Check Docker availability
     if (!_dockerManager->isDockerAvailable()) {
-        ui->dockerStatusLabel->setText(tr("Docker not available"));
+        ui->dockerStatusLabel->setText(tr("Docker not installed"));
         ui->dockerStatusLabel->setStyleSheet("color: orange;");
+
+        // Disable Docker controls but keep the panel visible for information
+        ui->initDbBtn->setEnabled(false);
+        ui->initDbBtn->setToolTip(tr("Docker is not installed. Please install Docker or use external InfluxDB."));
+        ui->startDockerBtn->setEnabled(false);
+        ui->stopDockerBtn->setEnabled(false);
+
+        // Show a one-time notice about Docker alternatives
+        QTimer::singleShot(1000, [this]() {
+            QMessageBox::information(this, tr("Docker Not Found"),
+                tr("Docker is not detected on this system.\n\n"
+                   "You have the following options:\n\n"
+                   "1. Install Docker Desktop (recommended for beginners):\n"
+                   "   https://www.docker.com/products/docker-desktop\n\n"
+                   "2. Use an external InfluxDB server:\n"
+                   "   - Enter the URL of an existing InfluxDB instance\n"
+                   "   - Or use InfluxDB Cloud (free tier available)\n\n"
+                   "3. Install InfluxDB directly without Docker:\n"
+                   "   https://docs.influxdata.com/influxdb/latest/install/\n\n"
+                   "The software will continue to work with CSV files only."));
+        });
+    } else {
+        // Docker is available, check if InfluxDB container is running
+        ui->dockerStatusLabel->setText(tr("Status: Docker available"));
+        ui->dockerStatusLabel->setStyleSheet("color: green;");
     }
 }
 
