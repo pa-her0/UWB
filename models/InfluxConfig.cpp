@@ -6,9 +6,8 @@
 
 #include "InfluxConfig.h"
 
-InfluxConfig::InfluxConfig(QObject *parent)
-    : QObject(parent)
-    , _url("http://localhost:8086")
+InfluxConfig::InfluxConfig()
+    : _url("http://localhost:8086")
     , _token("local-dev-token")
     , _org("uwb-lab")
     , _bucket("uwb")
@@ -23,10 +22,7 @@ QString InfluxConfig::url() const
 
 void InfluxConfig::setUrl(const QString &url)
 {
-    if (_url != url) {
-        _url = url;
-        emit urlChanged(_url);
-    }
+    _url = url;
 }
 
 QString InfluxConfig::token() const
@@ -36,10 +32,7 @@ QString InfluxConfig::token() const
 
 void InfluxConfig::setToken(const QString &token)
 {
-    if (_token != token) {
-        _token = token;
-        emit tokenChanged(_token);
-    }
+    _token = token;
 }
 
 QString InfluxConfig::org() const
@@ -49,10 +42,7 @@ QString InfluxConfig::org() const
 
 void InfluxConfig::setOrg(const QString &org)
 {
-    if (_org != org) {
-        _org = org;
-        emit orgChanged(_org);
-    }
+    _org = org;
 }
 
 QString InfluxConfig::bucket() const
@@ -62,10 +52,7 @@ QString InfluxConfig::bucket() const
 
 void InfluxConfig::setBucket(const QString &bucket)
 {
-    if (_bucket != bucket) {
-        _bucket = bucket;
-        emit bucketChanged(_bucket);
-    }
+    _bucket = bucket;
 }
 
 QString InfluxConfig::measurement() const
@@ -75,10 +62,7 @@ QString InfluxConfig::measurement() const
 
 void InfluxConfig::setMeasurement(const QString &measurement)
 {
-    if (_measurement != measurement) {
-        _measurement = measurement;
-        emit measurementChanged(_measurement);
-    }
+    _measurement = measurement;
 }
 
 bool InfluxConfig::isValid() const

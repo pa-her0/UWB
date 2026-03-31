@@ -9,20 +9,12 @@
 #ifndef INFLUXCONFIG_H
 #define INFLUXCONFIG_H
 
-#include <QObject>
 #include <QString>
 
-class InfluxConfig : public QObject
+class InfluxConfig
 {
-    Q_OBJECT
-    Q_PROPERTY(QString url READ url WRITE setUrl NOTIFY urlChanged)
-    Q_PROPERTY(QString token READ token WRITE setToken NOTIFY tokenChanged)
-    Q_PROPERTY(QString org READ org WRITE setOrg NOTIFY orgChanged)
-    Q_PROPERTY(QString bucket READ bucket WRITE setBucket NOTIFY bucketChanged)
-    Q_PROPERTY(QString measurement READ measurement WRITE setMeasurement NOTIFY measurementChanged)
-
 public:
-    explicit InfluxConfig(QObject *parent = nullptr);
+    InfluxConfig();
 
     QString url() const;
     void setUrl(const QString &url);
@@ -40,13 +32,6 @@ public:
     void setMeasurement(const QString &measurement);
 
     bool isValid() const;
-
-signals:
-    void urlChanged(const QString &url);
-    void tokenChanged(const QString &token);
-    void orgChanged(const QString &org);
-    void bucketChanged(const QString &bucket);
-    void measurementChanged(const QString &measurement);
 
 private:
     QString _url;

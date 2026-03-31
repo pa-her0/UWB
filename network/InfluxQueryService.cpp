@@ -66,7 +66,7 @@ void InfluxQueryService::testConnection()
     cancelRequest();
 
     QString url = QString("%1/api/v2/buckets").arg(_config.url());
-    QNetworkRequest request(QUrl(url));
+    QNetworkRequest request(url);
     request.setRawHeader("Authorization", QString("Token %1").arg(_config.token()).toUtf8());
     request.setRawHeader("Accept", "application/json");
 
@@ -130,7 +130,7 @@ void InfluxQueryService::queryTagList(const QDateTime &startTime, const QDateTim
     QString fluxQuery = buildTagListQuery(startTime, endTime);
     QString url = QString("%1/api/v2/query?org=%2").arg(_config.url()).arg(_config.org());
 
-    QNetworkRequest request(QUrl(url));
+    QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/vnd.flux");
     request.setRawHeader("Authorization", QString("Token %1").arg(_config.token()).toUtf8());
     request.setRawHeader("Accept", "application/csv");
@@ -255,7 +255,7 @@ void InfluxQueryService::queryTrajectory(const QString &tagId,
     QString fluxQuery = buildFluxQuery(tagId, startTime, endTime, QStringList());
     QString url = QString("%1/api/v2/query?org=%2").arg(_config.url()).arg(_config.org());
 
-    QNetworkRequest request(QUrl(url));
+    QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/vnd.flux");
     request.setRawHeader("Authorization", QString("Token %1").arg(_config.token()).toUtf8());
     request.setRawHeader("Accept", "application/csv");
@@ -378,7 +378,7 @@ void InfluxQueryService::queryTelemetry(const QString &tagId,
     QString fluxQuery = buildFluxQuery(tagId, startTime, endTime, queryFields);
     QString url = QString("%1/api/v2/query?org=%2").arg(_config.url()).arg(_config.org());
 
-    QNetworkRequest request(QUrl(url));
+    QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/vnd.flux");
     request.setRawHeader("Authorization", QString("Token %1").arg(_config.token()).toUtf8());
     request.setRawHeader("Accept", "application/csv");
@@ -502,7 +502,7 @@ void InfluxQueryService::queryTagTimeRange(const QString &tagId)
     QString fluxQuery = buildTimeRangeQuery(tagId);
     QString url = QString("%1/api/v2/query?org=%2").arg(_config.url()).arg(_config.org());
 
-    QNetworkRequest request(QUrl(url));
+    QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/vnd.flux");
     request.setRawHeader("Authorization", QString("Token %1").arg(_config.token()).toUtf8());
     request.setRawHeader("Accept", "application/csv");

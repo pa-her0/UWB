@@ -62,10 +62,10 @@ private slots:
 private:
     void executeCommand(const QString &command, const QStringList &args);
     QString findDockerCompose() const;
-    void createDefaultComposeFile(const QString &path) const;
+    void createDefaultComposeFile(const QString &path);
     void createInitComposeFile(const QString &path, const QString &org,
                                const QString &bucket, const QString &username,
-                               const QString &password, const QString &token) const;
+                               const QString &password, const QString &token);
 
     QProcess *_process;
     QString _workingDir;

@@ -156,7 +156,7 @@ void DockerManager::initializeInfluxDB(const QString &org, const QString &bucket
     startInfluxDB();
 }
 
-void DockerManager::createDefaultComposeFile(const QString &path) const
+void DockerManager::createDefaultComposeFile(const QString &path)
 {
     QString content = R"(services:
   influxdb:
@@ -185,7 +185,7 @@ void DockerManager::createDefaultComposeFile(const QString &path) const
 
 void DockerManager::createInitComposeFile(const QString &path, const QString &org,
                                           const QString &bucket, const QString &username,
-                                          const QString &password, const QString &token) const
+                                          const QString &password, const QString &token)
 {
     QString content = QString(R"(services:
   influxdb:

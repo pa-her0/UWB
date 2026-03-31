@@ -659,8 +659,10 @@ double gdoprate(const Vector3d& tag,
     // 增强中间区域的灵敏度（反向幂律调节）
     normalized = std::pow(normalized, 0.6);  // 指数<1增强低值区分辨率
 
-    // 严格边界保护（使用std::clamp替代if-else）
-    return std::clamp(normalized, 0.0, 1.0);
+    // 严格边界保护
+    if (normalized < 0.0) return 0.0;
+    if (normalized > 1.0) return 1.0;
+    return normalized;
 }
 
 

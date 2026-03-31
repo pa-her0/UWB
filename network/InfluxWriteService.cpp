@@ -197,7 +197,7 @@ void InfluxWriteService::sendBatch()
             .arg(_config.org())
             .arg(_config.bucket());
 
-    QNetworkRequest request(QUrl(url));
+    QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "text/plain; charset=utf-8");
     request.setRawHeader("Authorization", QString("Token %1").arg(_config.token()).toUtf8());
 
@@ -230,7 +230,7 @@ void InfluxWriteService::onWriteFinished()
 void InfluxWriteService::testConnection()
 {
     QString url = QString("%1/api/v2/buckets").arg(_config.url());
-    QNetworkRequest request(QUrl(url));
+    QNetworkRequest request(url);
     request.setRawHeader("Authorization", QString("Token %1").arg(_config.token()).toUtf8());
     request.setRawHeader("Accept", "application/json");
 
