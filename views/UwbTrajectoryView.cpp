@@ -13,6 +13,7 @@
 #include <QPainterPath>
 #include <QWheelEvent>
 #include <QMouseEvent>
+#include <QScrollBar>
 #include <QDebug>
 #include <cmath>
 
