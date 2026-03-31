@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>haorutech.ico</file>
+        <file>help.jpg</file>
+        <file>frame-10.gif</file>
+        <file>frame-11.gif</file>
+        <file>frame-12.gif</file>
+        <file>frame-1.gif</file>
+        <file>frame-2.gif</file>
+        <file>frame-3.gif</file>
+        <file>frame-4.gif</file>
+        <file>frame-5.gif</file>
+        <file>frame-6.gif</file>
+        <file>frame-7.gif</file>
+        <file>frame-8.gif</file>
+        <file>frame-9.gif</file>
+        <file>CanvasInformation.qml</file>
+        <file>Loading.qml</file>
+        <file>angle.png</file>
+        <file>position.png</file>
+        <file>scale.png</file>
+        <file>reset.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>../qss/Aqua.qss</file>
+        <file>../qss/ConsoleStyle.qss</file>
+        <file>../qss/ElegantDark.qss</file>
+        <file>../qss/LICENSE</file>
+        <file>../qss/ManjaroMix.qss</file>
+        <file>../qss/MaterialDark.qss</file>
+        <file>../qss/NeonButtons.qss</file>
+        <file>../qss/README.md</file>
+        <file>../qss/Ubuntu.qss</file>
+    </qresource>
+</RCC>

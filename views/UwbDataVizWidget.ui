@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UwbDataVizWidget</class>
+ <widget class="QWidget" name="UwbDataVizWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>UWB Data Visualization</string>
+  </property>
+  <layout class="QHBoxLayout" name="mainLayout">
+   <property name="spacing">
+    <number>10</number>
+   </property>
+   <property name="leftMargin">
+    <number>10</number>
+   </property>
+   <property name="topMargin">
+    <number>10</number>
+   </property>
+   <property name="rightMargin">
+    <number>10</number>
+   </property>
+   <property name="bottomMargin">
+    <number>10</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="configGroup">
+     <property name="title">
+      <string>Query Configuration</string>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>300</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>350</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="configLayout">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <item>
+       <widget class="QGroupBox" name="dockerGroup">
+        <property name="title">
+         <string>Docker Environment</string>
+        </property>
+        <layout class="QVBoxLayout" name="dockerLayout">
+         <item>
+          <layout class="QHBoxLayout" name="dockerBtnLayout">
+           <item>
+            <widget class="QPushButton" name="initDbBtn">
+             <property name="text">
+              <string>Init DB</string>
+             </property>
+             <property name="toolTip">
+              <string>Initialize InfluxDB Docker environment</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="startDockerBtn">
+             <property name="text">
+              <string>Start</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="stopDockerBtn">
+             <property name="text">
+              <string>Stop</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="dockerStatusLabel">
+           <property name="text">
+            <string>Status: Not running</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: gray;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="dbConfigGroup">
+        <property name="title">
+         <string>Database Connection</string>
+        </property>
+        <layout class="QFormLayout" name="dbConfigLayout">
+         <property name="labelAlignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="urlLabel">
+           <property name="text">
+            <string>URL:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="urlEdit">
+           <property name="text">
+            <string>http://localhost:8086</string>
+           </property>
+           <property name="placeholderText">
+            <string>http://localhost:8086</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="tokenLabel">
+           <property name="text">
+            <string>Token:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="tokenEdit">
+           <property name="text">
+            <string>local-dev-token</string>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="orgLabel">
+           <property name="text">
+            <string>Org:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="orgEdit">
+           <property name="text">
+            <string>uwb-lab</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="bucketLabel">
+           <property name="text">
+            <string>Bucket:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="bucketEdit">
+           <property name="text">
+            <string>uwb</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="measurementLabel">
+           <property name="text">
+            <string>Measurement:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="measurementEdit">
+           <property name="text">
+            <string>uwb_tag_telemetry</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="testBtnLayout">
+        <item>
+         <widget class="QPushButton" name="testConnectionBtn">
+          <property name="text">
+           <string>Test Connection</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="testBtnSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="statusLabel">
+          <property name="text">
+           <string>Not connected</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: gray;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="line1">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="queryGroup">
+        <property name="title">
+         <string>Query Parameters</string>
+        </property>
+        <layout class="QFormLayout" name="queryLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="tagLabel">
+           <property name="text">
+            <string>Tag ID:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <layout class="QHBoxLayout" name="tagLayout">
+           <item>
+            <widget class="QComboBox" name="tagCombo">
+             <property name="editable">
+              <bool>false</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>120</width>
+               <height>0</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="refreshTagsBtn">
+             <property name="text">
+              <string>Refresh</string>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>80</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>Refresh available tags from database</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="startTimeLabel">
+           <property name="text">
+            <string>Start Time:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QDateTimeEdit" name="startTimeEdit">
+           <property name="displayFormat">
+            <string>yyyy-MM-dd hh:mm:ss</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="endTimeLabel">
+           <property name="text">
+            <string>End Time:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QDateTimeEdit" name="endTimeEdit">
+           <property name="displayFormat">
+            <string>yyyy-MM-dd hh:mm:ss</string>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="displayGroup">
+        <property name="title">
+         <string>Display Options</string>
+        </property>
+        <layout class="QVBoxLayout" name="displayLayout">
+         <item>
+          <widget class="QCheckBox" name="showAnchorsCheck">
+           <property name="text">
+            <string>Show Anchors</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="showGridCheck">
+           <property name="text">
+            <string>Show Grid</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="resetViewLayout">
+           <item>
+            <widget class="QPushButton" name="resetViewBtn">
+             <property name="text">
+              <string>Reset View</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="queryBtnLayout">
+        <item>
+         <widget class="QPushButton" name="queryBtn">
+          <property name="text">
+           <string>Query</string>
+          </property>
+          <property name="default">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="queryBtnSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="line2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="realtimeGroup">
+        <property name="title">
+         <string>Real-time Write</string>
+        </property>
+        <layout class="QVBoxLayout" name="realtimeLayout">
+         <item>
+          <widget class="QCheckBox" name="enableRealtimeWrite">
+           <property name="text">
+            <string>Enable real-time write to InfluxDB</string>
+           </property>
+           <property name="toolTip">
+            <string>Automatically write incoming UWB data to InfluxDB</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="exportGroup">
+        <property name="title">
+         <string>Export</string>
+        </property>
+        <layout class="QHBoxLayout" name="exportLayout">
+         <item>
+          <widget class="QPushButton" name="exportCsvBtn">
+           <property name="text">
+            <string>Export CSV</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="exportImageBtn">
+           <property name="text">
+            <string>Export Image</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <spacer name="configSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <widget class="QWidget" name="visualizationContainer" native="true">
+      <layout class="QVBoxLayout" name="vizLayout">
+       <property name="spacing">
+        <number>5</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="vizTitle">
+         <property name="text">
+          <string>Trajectory View</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-weight: bold; font-size: 14px;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="UwbTrajectoryView" name="trajectoryView" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>500</width>
+           <height>300</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tableContainer" native="true">
+      <layout class="QVBoxLayout" name="tableLayout">
+       <property name="spacing">
+        <number>5</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="tableTitle">
+         <property name="text">
+          <string>Data Table</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font-weight: bold;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="dataTable">
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <property name="sortingEnabled">
+          <bool>false</bool>
+         </property>
+         <column>
+          <property name="text">
+           <string>Time</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Tag ID</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>X (m)</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Y (m)</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Z (m)</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Roll</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Pitch</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Yaw</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Rx Power</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>UwbTrajectoryView</class>
+   <extends>QWidget</extends>
+   <header>UwbTrajectoryView.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,46 @@
+from __future__ import annotations
+
+CSV_SCHEMA = [
+    "rangetime_ms",
+    "tag_id",
+    "position_x_m",
+    "position_y_m",
+    "position_z_m",
+    "range0_m",
+    "range1_m",
+    "range2_m",
+    "range3_m",
+    "range4_m",
+    "range5_m",
+    "range6_m",
+    "range7_m",
+    "rx_pwr_dbm",
+    "accel_x",
+    "accel_y",
+    "accel_z",
+    "gyro_x",
+    "gyro_y",
+    "gyro_z",
+    "mag_x",
+    "mag_y",
+    "mag_z",
+    "roll",
+    "pitch",
+    "yaw",
+    "extra_col_01",
+    "extra_col_02",
+    "extra_col_03",
+    "extra_col_04",
+    "extra_col_05",
+    "extra_col_06",
+    "extra_col_07",
+    "extra_col_08",
+    "extra_col_09",
+    "extra_col_10",
+    "extra_col_11",
+    "extra_col_12",
+]
+
+TAG_COLUMNS = ("tag_id",)
+
+MEASUREMENT = "uwb_tag_telemetry"

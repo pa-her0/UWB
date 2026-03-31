@@ -1,0 +1,16 @@
+{
+  "influxdb": {
+    "url": "http://localhost:8086",
+    "org": "uwb-lab",
+    "bucket": "uwb",
+    "token": "local-dev-token",
+    "measurement": "uwb_tag_telemetry",
+    "start": "2026-03-25T00:00:00Z",
+    "stop": null
+  },
+  "plot": {
+    "tag_id": "Tag 0",
+    "anchors_path": "../anchors.example.json",
+    "output_path": "../outputs/tag0_trajectory.svg"
+  }
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<RCC>
+    <qresource prefix="/icons">
+        <file alias="haorutech.ico">res/haorutech.ico</file>
+        <file alias="help.jpg">res/help.jpg</file>
+        <file alias="frame-10.gif">res/frame-10.gif</file>
+        <file alias="frame-11.gif">res/frame-11.gif</file>
+        <file alias="frame-12.gif">res/frame-12.gif</file>
+        <file alias="frame-1.gif">res/frame-1.gif</file>
+        <file alias="frame-2.gif">res/frame-2.gif</file>
+        <file alias="frame-3.gif">res/frame-3.gif</file>
+        <file alias="frame-4.gif">res/frame-4.gif</file>
+        <file alias="frame-5.gif">res/frame-5.gif</file>
+        <file alias="frame-6.gif">res/frame-6.gif</file>
+        <file alias="frame-7.gif">res/frame-7.gif</file>
+        <file alias="frame-8.gif">res/frame-8.gif</file>
+        <file alias="frame-9.gif">res/frame-9.gif</file>
+        <file alias="angle.png">res/angle.png</file>
+        <file alias="position.png">res/position.png</file>
+        <file alias="scale.png">res/scale.png</file>
+        <file alias="reset.png">res/reset.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file alias="../qss/Aqua.qss">qss/Aqua.qss</file>
+        <file alias="../qss/ConsoleStyle.qss">qss/ConsoleStyle.qss</file>
+        <file alias="../qss/ElegantDark.qss">qss/ElegantDark.qss</file>
+        <file alias="../qss/LICENSE">qss/LICENSE</file>
+        <file alias="../qss/ManjaroMix.qss">qss/ManjaroMix.qss</file>
+        <file alias="../qss/MaterialDark.qss">qss/MaterialDark.qss</file>
+        <file alias="../qss/NeonButtons.qss">qss/NeonButtons.qss</file>
+        <file alias="../qss/README.md">qss/README.md</file>
+        <file alias="../qss/Ubuntu.qss">qss/Ubuntu.qss</file>
+    </qresource>
+</RCC>
