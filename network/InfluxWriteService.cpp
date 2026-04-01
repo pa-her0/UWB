@@ -20,14 +20,14 @@ InfluxWriteService::InfluxWriteService(QObject *parent)
 {
     _batchTimer->setInterval(BATCH_INTERVAL_MS);
     connect(_batchTimer, &QTimer::timeout, this, &InfluxWriteService::onBatchTimer);
-    _batchTimer->start();
+    // Timer starts only when enabled
 }
 
 InfluxWriteService::~InfluxWriteService()
 {
-    // Flush remaining data before destroy
-    if (!_writeQueue.isEmpty()) {
-        flushBatch();
+    // Flush remaining data before destroy, bypassing _enabled check
+    if (!_writeQueue.isEmpty() && !_isWriting) {
+        sendBatch();
     }
 }
 
@@ -51,9 +51,9 @@ void InfluxWriteService::setEnabled(bool enabled)
             _batchTimer->start();
         } else {
             _batchTimer->stop();
-            // Flush remaining data when disabled
-            if (!_writeQueue.isEmpty()) {
-                flushBatch();
+            // Flush remaining data when disabled, bypass _enabled check
+            if (!_writeQueue.isEmpty() && !_isWriting) {
+                sendBatch();
             }
         }
     }

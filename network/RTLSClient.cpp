@@ -1719,6 +1719,8 @@ void RTLSClient::trilaterateTag(int tid, int seq, int idx)
 
         // Write to InfluxDB in real-time
         InfluxWriteService *writeService = RTLSDisplayApplication::influxWriteService();
+        qDebug() << "RTLSClient: newposition=true, writeService=" << (writeService ? "valid" : "null")
+                 << "enabled=" << (writeService ? writeService->isEnabled() : false);
         if (writeService && writeService->isEnabled()) {
             UwbDataPoint point;
             point.timestamp = QDateTime::currentDateTimeUtc();

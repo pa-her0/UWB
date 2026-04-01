@@ -220,6 +220,7 @@ void UwbDataVizWidget::onTestConnection()
     _config.setMeasurement(ui->measurementEdit->text());
 
     _queryService->setConfig(_config);
+    _writeService->setConfig(_config);
     _queryService->testConnection();
 
     updateStatus(tr("Testing connection..."));
@@ -230,10 +231,19 @@ void UwbDataVizWidget::onConnectionTested(bool success, const QString &message)
     if (success) {
         ui->statusLabel->setText(tr("Connected"));
         ui->statusLabel->setStyleSheet("color: green;");
-        updateStatus(tr("Connection successful"));
+        updateStatus(tr("Connection successful - Enable real-time write to store data"));
 
         // Auto refresh tag list on successful connection
         onRefreshTagList();
+
+        // Prompt user to enable real-time write if not already enabled
+        if (!ui->enableRealtimeWrite->isChecked()) {
+            QMessageBox::information(this, tr("Real-time Write"),
+                tr("Connection successful!\n\n"
+                   "To store incoming UWB data to InfluxDB, "
+                   "please check \"Enable real-time write to InfluxDB\" "
+                   "in the Real-time Write section."));
+        }
     } else {
         ui->statusLabel->setText(tr("Failed"));
         ui->statusLabel->setStyleSheet("color: red;");
@@ -250,6 +260,7 @@ void UwbDataVizWidget::onRefreshTagList()
     _config.setMeasurement(ui->measurementEdit->text());
 
     _queryService->setConfig(_config);
+    _writeService->setConfig(_config);
     _queryService->queryTagList();
 }
 
@@ -459,7 +470,8 @@ void UwbDataVizWidget::onTagSelectionChanged(int index)
 
 void UwbDataVizWidget::updateStatus(const QString &message, bool isError)
 {
-    // Could emit to status bar or update a label
+    ui->statusLabel->setText(message);
+    ui->statusLabel->setStyleSheet(isError ? "color: red;" : "color: black;");
     qDebug() << (isError ? "Error:" : "Status:") << message;
 }
 

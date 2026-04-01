@@ -107,15 +107,9 @@ QString InfluxQueryService::buildTagListQuery(const QDateTime &startTime, const 
         startStr = "1970-01-01T00:00:00Z";
     }
 
-    QString stopClause;
     QString endStr = formatTime(endTime);
-    if (!endStr.isEmpty()) {
-        stopClause = QString(", stop: time(v: \"%1\")").arg(endStr);
-    }
-
-    // Build range parameter - schema.tagValues uses simple time strings, not time(v: "...")
     QString rangeParam = QString("start: %1").arg(startStr);
-    if (!stopClause.isEmpty()) {
+    if (!endStr.isEmpty()) {
         rangeParam += QString(", stop: %1").arg(endStr);
     }
 
@@ -189,18 +183,33 @@ QStringList InfluxQueryService::parseTagListResponse(const QByteArray &data)
     QString content = QString::fromUtf8(data);
     QStringList lines = content.split('\n', QString::SkipEmptyParts);
 
-    // CSV format: result,table,_value
-    // Skip header line
-    bool firstLine = true;
+    // InfluxDB annotated CSV has lines starting with # (datatype, group, default)
+    // then a header line, then data lines
+    bool headerFound = false;
+    int valueIdx = -1;
+
     for (const QString &line : lines) {
-        if (firstLine) {
-            firstLine = false;
+        // Skip annotation lines
+        if (line.startsWith('#') || line.trimmed().isEmpty()) continue;
+
+        QStringList cols = line.split(',');
+
+        if (!headerFound) {
+            // This is the header row - find _value column index
+            for (int i = 0; i < cols.size(); ++i) {
+                if (cols[i].trimmed() == "_value") {
+                    valueIdx = i;
+                    break;
+                }
+            }
+            headerFound = true;
             continue;
         }
-        QStringList cols = line.split(',');
-        if (cols.size() >= 3) {
-            QString tagValue = cols[2].trimmed();
-            if (!tagValue.isEmpty() && tagValue != "_value") {
+
+        // Data row
+        if (valueIdx >= 0 && valueIdx < cols.size()) {
+            QString tagValue = cols[valueIdx].trimmed();
+            if (!tagValue.isEmpty()) {
                 tags.append(tagValue);
             }
         }
@@ -331,51 +340,48 @@ QList<TrajectoryPoint> InfluxQueryService::parseTrajectoryResponse(const QByteAr
 
     if (lines.isEmpty()) return points;
 
-    // Parse header to get column indices
-    QString header = lines[0];
-    QStringList headers = header.split(',');
+    // Skip InfluxDB annotated CSV comment lines (#datatype, #group, #default)
     QMap<QString, int> colIndex;
-    for (int i = 0; i < headers.size(); ++i) {
-        colIndex[headers[i].trimmed()] = i;
-    }
+    bool headerFound = false;
 
-    int timeIdx = colIndex.value("_time", 2);
-    int tagIdx = colIndex.value("tag_id", 4);
-    int xIdx = colIndex.value("position_x_m", -1);
-    int yIdx = colIndex.value("position_y_m", -1);
-    int zIdx = colIndex.value("position_z_m", -1);
+    for (const QString &line : lines) {
+        if (line.startsWith('#') || line.trimmed().isEmpty()) continue;
 
-    // CSV format with pivot:
-    // result,table,_time,_measurement,tag_id,position_x_m,position_y_m,position_z_m,...
-    for (int i = 1; i < lines.size(); ++i) {
-        QStringList cols = lines[i].split(',');
-        if (cols.size() < headers.size()) continue;
+        if (!headerFound) {
+            QStringList headers = line.split(',');
+            for (int i = 0; i < headers.size(); ++i)
+                colIndex[headers[i].trimmed()] = i;
+            headerFound = true;
+            continue;
+        }
+
+        QStringList cols = line.split(',');
+
+        int timeIdx = colIndex.value("_time", -1);
+        int tagIdx  = colIndex.value("tag_id", -1);
+        int xIdx    = colIndex.value("position_x_m", -1);
+        int yIdx    = colIndex.value("position_y_m", -1);
+        int zIdx    = colIndex.value("position_z_m", -1);
+
+        if (timeIdx < 0 || tagIdx < 0) continue;
+        if (timeIdx >= cols.size() || tagIdx >= cols.size()) continue;
 
         QString timeStr = cols[timeIdx].trimmed();
-        QString tagId = cols[tagIdx].trimmed();
+        QString tagId   = cols[tagIdx].trimmed();
 
-        // Parse timestamp
         QDateTime time = QDateTime::fromString(timeStr, Qt::ISODate);
-        if (!time.isValid()) {
+        if (!time.isValid())
             time = QDateTime::fromString(timeStr, "yyyy-MM-ddThh:mm:ss.zzzZ");
-        }
 
         double x = 0.0, y = 0.0, z = 0.0;
         bool xOk = false, yOk = false;
 
-        if (xIdx >= 0 && xIdx < cols.size()) {
-            x = cols[xIdx].trimmed().toDouble(&xOk);
-        }
-        if (yIdx >= 0 && yIdx < cols.size()) {
-            y = cols[yIdx].trimmed().toDouble(&yOk);
-        }
-        if (zIdx >= 0 && zIdx < cols.size()) {
-            z = cols[zIdx].trimmed().toDouble();
-        }
+        if (xIdx >= 0 && xIdx < cols.size()) x = cols[xIdx].trimmed().toDouble(&xOk);
+        if (yIdx >= 0 && yIdx < cols.size()) y = cols[yIdx].trimmed().toDouble(&yOk);
+        if (zIdx >= 0 && zIdx < cols.size()) z = cols[zIdx].trimmed().toDouble();
 
         if (xOk && yOk && time.isValid()) {
-            TrajectoryPoint point(time, tagId, x, y, z);
-            points.append(point);
+            points.append(TrajectoryPoint(time, tagId, x, y, z));
         }
     }
 
@@ -451,55 +457,66 @@ void InfluxQueryService::onTelemetryFinished()
 
 QList<TrajectoryPoint> InfluxQueryService::parseTelemetryResponse(const QByteArray &data)
 {
-    // Similar to parseTrajectoryResponse but parses all fields
     QList<TrajectoryPoint> points;
     QString content = QString::fromUtf8(data);
     QStringList lines = content.split('\n', QString::SkipEmptyParts);
 
     if (lines.isEmpty()) return points;
 
-    // Parse header to get column indices
-    QString header = lines[0];
-    QStringList headers = header.split(',');
+    // Skip InfluxDB annotated CSV comment lines (#datatype, #group, #default)
     QMap<QString, int> colIndex;
-    for (int i = 0; i < headers.size(); ++i) {
-        colIndex[headers[i].trimmed()] = i;
-    }
+    bool headerFound = false;
 
-    int timeIdx = colIndex.value("_time", 2);
-    int tagIdx = colIndex.value("tag_id", 4);
-    int xIdx = colIndex.value("position_x_m", -1);
-    int yIdx = colIndex.value("position_y_m", -1);
-    int zIdx = colIndex.value("position_z_m", -1);
-    int rollIdx = colIndex.value("roll", -1);
-    int pitchIdx = colIndex.value("pitch", -1);
-    int yawIdx = colIndex.value("yaw", -1);
-    int rxPowerIdx = colIndex.value("rx_pwr_dbm", -1);
+    for (const QString &line : lines) {
+        if (line.startsWith('#') || line.trimmed().isEmpty()) continue;
 
-    for (int i = 1; i < lines.size(); ++i) {
-        QStringList cols = lines[i].split(',');
-        if (cols.size() < headers.size()) continue;
+        if (!headerFound) {
+            QStringList headers = line.split(',');
+            for (int i = 0; i < headers.size(); ++i)
+                colIndex[headers[i].trimmed()] = i;
+            headerFound = true;
+            continue;
+        }
+
+        QStringList cols = line.split(',');
+
+        int timeIdx    = colIndex.value("_time", -1);
+        int tagIdx     = colIndex.value("tag_id", -1);
+        int xIdx       = colIndex.value("position_x_m", -1);
+        int yIdx       = colIndex.value("position_y_m", -1);
+        int zIdx       = colIndex.value("position_z_m", -1);
+        int rollIdx    = colIndex.value("roll", -1);
+        int pitchIdx   = colIndex.value("pitch", -1);
+        int yawIdx     = colIndex.value("yaw", -1);
+        int rxPowerIdx = colIndex.value("rx_pwr_dbm", -1);
+
+        if (timeIdx < 0 || tagIdx < 0) continue;
+        if (timeIdx >= cols.size() || tagIdx >= cols.size()) continue;
 
         QString timeStr = cols[timeIdx].trimmed();
-        QString tagId = cols[tagIdx].trimmed();
+        QString tagId   = cols[tagIdx].trimmed();
 
         QDateTime time = QDateTime::fromString(timeStr, Qt::ISODate);
-        if (!time.isValid()) {
+        if (!time.isValid())
             time = QDateTime::fromString(timeStr, "yyyy-MM-ddThh:mm:ss.zzzZ");
-        }
         if (!time.isValid()) continue;
 
         TrajectoryPoint point;
         point.setTime(time);
         point.setTagId(tagId);
 
-        if (xIdx >= 0 && xIdx < cols.size()) point.setX(cols[xIdx].trimmed().toDouble());
-        if (yIdx >= 0 && yIdx < cols.size()) point.setY(cols[yIdx].trimmed().toDouble());
-        if (zIdx >= 0 && zIdx < cols.size()) point.setZ(cols[zIdx].trimmed().toDouble());
-        if (rollIdx >= 0 && rollIdx < cols.size()) point.setRoll(cols[rollIdx].trimmed().toDouble());
-        if (pitchIdx >= 0 && pitchIdx < cols.size()) point.setPitch(cols[pitchIdx].trimmed().toDouble());
-        if (yawIdx >= 0 && yawIdx < cols.size()) point.setYaw(cols[yawIdx].trimmed().toDouble());
-        if (rxPowerIdx >= 0 && rxPowerIdx < cols.size()) point.setRxPower(cols[rxPowerIdx].trimmed().toDouble());
+        auto safeDouble = [&](int idx) -> double {
+            if (idx >= 0 && idx < cols.size()) return cols[idx].trimmed().toDouble();
+            return 0.0;
+        };
+
+        point.setX(safeDouble(xIdx));
+        point.setY(safeDouble(yIdx));
+        point.setZ(safeDouble(zIdx));
+        point.setRoll(safeDouble(rollIdx));
+        point.setPitch(safeDouble(pitchIdx));
+        point.setYaw(safeDouble(yawIdx));
+        point.setRxPower(safeDouble(rxPowerIdx));
 
         points.append(point);
     }

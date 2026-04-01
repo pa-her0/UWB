@@ -1005,8 +1005,22 @@ The software will continue to work with CSV files only.</source>
     </message>
     <message>
         <location filename="views/UwbDataVizWidget.cpp" line="221"/>
-        <source>Connection successful</source>
-        <translation>连接成功</translation>
+        <source>Connection successful - Enable real-time write to store data</source>
+        <translation>连接成功 - 请启用实时写入以存储数据</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="225"/>
+        <source>Real-time Write</source>
+        <translation>实时写入</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="226"/>
+        <source>Connection successful!
+
+To store incoming UWB data to InfluxDB, please check "Enable real-time write to InfluxDB" in the Real-time Write section.</source>
+        <translation>连接成功！
+
+要将接收到的 UWB 数据存储到 InfluxDB，请在"实时写入"部分勾选"启用实时写入 InfluxDB"。</translation>
     </message>
     <message>
         <location filename="views/UwbDataVizWidget.cpp" line="226"/>

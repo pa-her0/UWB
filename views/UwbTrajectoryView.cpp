@@ -50,6 +50,8 @@ void UwbTrajectoryView::setupScene()
 void UwbTrajectoryView::setTrajectory(const QList<TrajectoryPoint> &points)
 {
     _points = points;
+    drawGrid();
+    drawAnchors();
     drawTrajectory();
     drawStartEnd();
     updateTransform();
