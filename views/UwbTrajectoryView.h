@@ -80,6 +80,7 @@ private:
     QGraphicsEllipseItem *_highlightPoint;
     QList<QGraphicsItem*> _anchorItems;
     QList<QGraphicsItem*> _gridItems;
+    QList<QGraphicsItem*> _trajectoryDotItems;
 
     bool _showGrid;
     bool _showAnchors;

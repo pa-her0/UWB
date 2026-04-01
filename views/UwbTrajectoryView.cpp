@@ -75,6 +75,11 @@ void UwbTrajectoryView::clearTrajectory()
         delete _endPoint;
         _endPoint = nullptr;
     }
+    for (auto item : _trajectoryDotItems) {
+        _scene->removeItem(item);
+        delete item;
+    }
+    _trajectoryDotItems.clear();
     clearHighlight();
 }
 
@@ -172,7 +177,7 @@ void UwbTrajectoryView::drawGrid()
     borderPen.setWidthF(2);
     QGraphicsRectItem *border = new QGraphicsRectItem(rect);
     border->setPen(borderPen);
-    border->setBrush(QBrush(Qt::white));
+    border->setBrush(Qt::NoBrush);
     _scene->addItem(border);
     _gridItems.append(border);
 }
@@ -184,6 +189,11 @@ void UwbTrajectoryView::drawTrajectory()
         delete _trajectoryPath;
         _trajectoryPath = nullptr;
     }
+    for (auto item : _trajectoryDotItems) {
+        _scene->removeItem(item);
+        delete item;
+    }
+    _trajectoryDotItems.clear();
 
     if (_points.size() < 2) return;
 
@@ -220,7 +230,7 @@ void UwbTrajectoryView::drawTrajectory()
             .arg(_points[i].x(), 0, 'f', 3)
             .arg(_points[i].y(), 0, 'f', 3));
         _scene->addItem(point);
-        _gridItems.append(point);
+        _trajectoryDotItems.append(point);
     }
 }
 

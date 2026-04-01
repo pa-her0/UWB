@@ -541,13 +541,20 @@ QList<TrajectoryPoint> InfluxQueryService::parseTelemetryResponse(const QByteArr
         point.setTime(time);
         point.setTagId(tagId);
 
+        if (xIdx < 0 || yIdx < 0 || xIdx >= cols.size() || yIdx >= cols.size()) continue;
+
+        bool xOk = false, yOk = false;
+        double x = cols[xIdx].trimmed().toDouble(&xOk);
+        double y = cols[yIdx].trimmed().toDouble(&yOk);
+        if (!xOk || !yOk) continue;
+
         auto safeDouble = [&](int idx) -> double {
             if (idx >= 0 && idx < cols.size()) return cols[idx].trimmed().toDouble();
             return 0.0;
         };
 
-        point.setX(safeDouble(xIdx));
-        point.setY(safeDouble(yIdx));
+        point.setX(x);
+        point.setY(y);
         point.setZ(safeDouble(zIdx));
         point.setRoll(safeDouble(rollIdx));
         point.setPitch(safeDouble(pitchIdx));
