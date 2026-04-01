@@ -322,46 +322,6 @@ Cloud: https://us-east-1-1.aws.cloud2.influxdata.com</string>
        </widget>
       </item>
       <item>
-       <widget class="QGroupBox" name="displayGroup">
-        <property name="title">
-         <string>Display Options</string>
-        </property>
-        <layout class="QVBoxLayout" name="displayLayout">
-         <item>
-          <widget class="QCheckBox" name="showAnchorsCheck">
-           <property name="text">
-            <string>Show Anchors</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="showGridCheck">
-           <property name="text">
-            <string>Show Grid</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="resetViewLayout">
-           <item>
-            <widget class="QPushButton" name="resetViewBtn">
-             <property name="text">
-              <string>Reset View</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
        <layout class="QHBoxLayout" name="queryBtnLayout">
         <item>
          <widget class="QPushButton" name="queryBtn">
@@ -442,151 +402,97 @@ Cloud: https://us-east-1-1.aws.cloud2.influxdata.com</string>
     </widget>
    </item>
    <item>
-    <widget class="QSplitter" name="splitter">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <widget class="QWidget" name="visualizationContainer" native="true">
-      <layout class="QVBoxLayout" name="vizLayout">
-       <property name="spacing">
-        <number>5</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="vizTitle">
+    <widget class="QWidget" name="tableContainer" native="true">
+     <layout class="QVBoxLayout" name="tableLayout">
+      <property name="spacing">
+       <number>5</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="tableTitle">
+        <property name="text">
+         <string>Data Table</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-weight: bold;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTableWidget" name="dataTable">
+        <property name="alternatingRowColors">
+         <bool>true</bool>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <column>
          <property name="text">
-          <string>Trajectory View</string>
+          <string>Time</string>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">font-weight: bold; font-size: 14px;</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="UwbTrajectoryView" name="trajectoryView" native="true">
-         <property name="minimumSize">
-          <size>
-           <width>500</width>
-           <height>300</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tableContainer" native="true">
-      <layout class="QVBoxLayout" name="tableLayout">
-       <property name="spacing">
-        <number>5</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="tableTitle">
+        </column>
+        <column>
          <property name="text">
-          <string>Data Table</string>
+          <string>Tag ID</string>
          </property>
-         <property name="styleSheet">
-          <string notr="true">font-weight: bold;</string>
+        </column>
+        <column>
+         <property name="text">
+          <string>X (m)</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QTableWidget" name="dataTable">
-         <property name="alternatingRowColors">
-          <bool>true</bool>
+        </column>
+        <column>
+         <property name="text">
+          <string>Y (m)</string>
          </property>
-         <property name="selectionBehavior">
-          <enum>QAbstractItemView::SelectRows</enum>
+        </column>
+        <column>
+         <property name="text">
+          <string>Z (m)</string>
          </property>
-         <property name="sortingEnabled">
-          <bool>false</bool>
+        </column>
+        <column>
+         <property name="text">
+          <string>Roll</string>
          </property>
-         <column>
-          <property name="text">
-           <string>Time</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Tag ID</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>X (m)</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Y (m)</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Z (m)</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Roll</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Pitch</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Yaw</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Rx Power</string>
-          </property>
-         </column>
-        </widget>
-       </item>
-      </layout>
-     </widget>
+        </column>
+        <column>
+         <property name="text">
+          <string>Pitch</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Yaw</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Rx Power</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>UwbTrajectoryView</class>
-   <extends>QWidget</extends>
-   <header>UwbTrajectoryView.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
+ <customwidgets/>
  <resources/>
  <connections/>
 </ui>

@@ -11,8 +11,10 @@
 
 #include <QWidget>
 #include <QList>
+#include <QPixmap>
 #include "InfluxConfig.h"
 #include "TrajectoryPoint.h"
+#include "UwbTrajectoryView.h"
 
 namespace Ui {
 class UwbDataVizWidget;
@@ -21,7 +23,6 @@ class UwbDataVizWidget;
 class InfluxQueryService;
 class InfluxWriteService;
 class DockerManager;
-class UwbTrajectoryView;
 class QTableWidgetItem;
 
 class UwbDataVizWidget : public QWidget
@@ -35,7 +36,6 @@ public:
     void loadSettings();
     void saveSettings();
 
-    // Access to write service for real-time data writing
     InfluxWriteService* writeService() const;
 
 protected:
@@ -43,7 +43,6 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private slots:
-    // Docker
     void onInitDatabase();
     void onStartDocker();
     void onStopDocker();
@@ -51,11 +50,9 @@ private slots:
     void onDockerMessage(const QString &message);
     void onDockerError(const QString &error);
 
-    // Connection
     void onTestConnection();
     void onConnectionTested(bool success, const QString &message);
 
-    // Query
     void onQueryClicked();
     void onRefreshTagList();
     void onTagListReady(const QStringList &tags);
@@ -64,41 +61,30 @@ private slots:
     void onQueryError(const QString &error);
     void onLoadingChanged(bool loading);
 
-    // Trajectory interaction
-    void onPointClicked(int index, const TrajectoryPoint &point);
-    void onPointHovered(int index, const TrajectoryPoint &point);
-
-    // Table interaction
     void onTableItemClicked(int row, int column);
     void onTableSelectionChanged();
 
-    // Export
     void onExportCsv();
     void onExportImage();
 
-    // UI controls
     void onTagSelectionChanged(int index);
-    void onShowAnchorsToggled(bool checked);
-    void onShowGridToggled(bool checked);
-    void onResetView();
 
 private:
-    void setupUI();
     void setupConnections();
     void updateStatus(const QString &message, bool isError = false);
     void populateTable(const QList<TrajectoryPoint> &points);
-    void highlightTableRow(int row);
     void loadAnchorConfig();
     void setDefaultTimeRange();
+    QPixmap renderTrajectoryImage(int width, int height) const;
 
     Ui::UwbDataVizWidget *ui;
     InfluxQueryService *_queryService;
     InfluxWriteService *_writeService;
     DockerManager *_dockerManager;
-    UwbTrajectoryView *_trajectoryView;
 
     InfluxConfig _config;
     QList<TrajectoryPoint> _currentPoints;
+    QList<AnchorInfo> _anchors;
     QStringList _availableTags;
     bool _isLoading;
 };

@@ -9,7 +9,6 @@
 #include "InfluxQueryService.h"
 #include "InfluxWriteService.h"
 #include "DockerManager.h"
-#include "UwbTrajectoryView.h"
 #include "RTLSDisplayApplication.h"
 
 #include <QMessageBox>
@@ -22,10 +21,13 @@
 #include <QTextStream>
 #include <QPixmap>
 #include <QPainter>
+#include <QPainterPath>
+#include <QFontMetrics>
 #include <QDebug>
 #include <QSettings>
 #include <QDir>
 #include <QTimer>
+#include <cmath>
 
 UwbDataVizWidget::UwbDataVizWidget(QWidget *parent)
     : QWidget(parent)
@@ -33,16 +35,9 @@ UwbDataVizWidget::UwbDataVizWidget(QWidget *parent)
     , _queryService(new InfluxQueryService(this))
     , _writeService(new InfluxWriteService(this))
     , _dockerManager(new DockerManager(this))
-    , _trajectoryView(nullptr)
     , _isLoading(false)
 {
     ui->setupUi(this);
-
-    // Replace the placeholder with our actual trajectory view
-    _trajectoryView = new UwbTrajectoryView(this);
-    ui->vizLayout->replaceWidget(ui->trajectoryView, _trajectoryView);
-    delete ui->trajectoryView;
-    ui->trajectoryView = _trajectoryView;
 
     // Setup Docker working directory (where docker-compose.yml will be created)
     QString dockerDir = QDir::currentPath() + "/influx";
@@ -125,10 +120,6 @@ void UwbDataVizWidget::setupConnections()
         qDebug() << "InfluxDB write error:" << error;
     });
 
-    // Trajectory view interaction
-    connect(_trajectoryView, &UwbTrajectoryView::pointClicked, this, &UwbDataVizWidget::onPointClicked);
-    connect(_trajectoryView, &UwbTrajectoryView::pointHovered, this, &UwbDataVizWidget::onPointHovered);
-
     // Table interaction
     connect(ui->dataTable, &QTableWidget::cellClicked, this, &UwbDataVizWidget::onTableItemClicked);
     connect(ui->dataTable, &QTableWidget::itemSelectionChanged, this, &UwbDataVizWidget::onTableSelectionChanged);
@@ -141,7 +132,6 @@ void UwbDataVizWidget::setupConnections()
     connect(ui->enableRealtimeWrite, &QCheckBox::toggled, [this](bool checked) {
         _writeService->setEnabled(checked);
         if (checked) {
-            // Update config from UI
             _config.setUrl(ui->urlEdit->text());
             _config.setToken(ui->tokenEdit->text());
             _config.setOrg(ui->orgEdit->text());
@@ -154,10 +144,6 @@ void UwbDataVizWidget::setupConnections()
         }
     });
 
-    // Display options
-    connect(ui->showAnchorsCheck, &QCheckBox::toggled, this, &UwbDataVizWidget::onShowAnchorsToggled);
-    connect(ui->showGridCheck, &QCheckBox::toggled, this, &UwbDataVizWidget::onShowGridToggled);
-    connect(ui->resetViewBtn, &QPushButton::clicked, this, &UwbDataVizWidget::onResetView);
     connect(ui->tagCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
             this, &UwbDataVizWidget::onTagSelectionChanged);
 }
@@ -205,7 +191,7 @@ void UwbDataVizWidget::loadAnchorConfig()
         }
 
         if (!anchorList.isEmpty()) {
-            _trajectoryView->setAnchors(anchorList);
+            _anchors = anchorList;
             break;
         }
     }
@@ -308,19 +294,14 @@ void UwbDataVizWidget::onQueryClicked()
 void UwbDataVizWidget::onTrajectoryReady(const QList<TrajectoryPoint> &points)
 {
     _currentPoints = points;
-    _trajectoryView->setTrajectory(points);
     populateTable(points);
-
     updateStatus(tr("Loaded %1 points").arg(points.size()));
 }
 
 void UwbDataVizWidget::onTelemetryReady(const QList<TrajectoryPoint> &points)
 {
-    // Same handling as trajectory for now
     _currentPoints = points;
-    _trajectoryView->setTrajectory(points);
     populateTable(points);
-
     updateStatus(tr("Loaded %1 points").arg(points.size()));
 }
 
@@ -357,40 +338,13 @@ void UwbDataVizWidget::populateTable(const QList<TrajectoryPoint> &points)
     }
 }
 
-void UwbDataVizWidget::onPointClicked(int index, const TrajectoryPoint &point)
-{
-    highlightTableRow(index);
-}
-
-void UwbDataVizWidget::onPointHovered(int index, const TrajectoryPoint &point)
-{
-    // Optional: show status bar message or tooltip
-}
-
 void UwbDataVizWidget::onTableItemClicked(int row, int column)
 {
-    if (row >= 0 && row < _currentPoints.size()) {
-        _trajectoryView->highlightPoint(row);
-    }
+    Q_UNUSED(row); Q_UNUSED(column);
 }
 
 void UwbDataVizWidget::onTableSelectionChanged()
 {
-    QList<QTableWidgetItem*> items = ui->dataTable->selectedItems();
-    if (!items.isEmpty()) {
-        int row = items.first()->row();
-        if (row >= 0 && row < _currentPoints.size()) {
-            _trajectoryView->highlightPoint(row);
-        }
-    }
-}
-
-void UwbDataVizWidget::highlightTableRow(int row)
-{
-    if (row >= 0 && row < ui->dataTable->rowCount()) {
-        ui->dataTable->selectRow(row);
-        ui->dataTable->scrollToItem(ui->dataTable->item(row, 0));
-    }
 }
 
 void UwbDataVizWidget::onExportCsv()
@@ -433,34 +387,23 @@ void UwbDataVizWidget::onExportCsv()
 
 void UwbDataVizWidget::onExportImage()
 {
-    QString filename = QFileDialog::getSaveFileName(this, tr("Export Image"),
+    if (_currentPoints.isEmpty()) {
+        QMessageBox::warning(this, tr("Warning"), tr("No data to export"));
+        return;
+    }
+
+    QString filename = QFileDialog::getSaveFileName(this, tr("Export Trajectory Image"),
         QString("trajectory_%1.png").arg(QDateTime::currentDateTime().toString("yyyyMMdd_hhmmss")),
         tr("PNG Files (*.png);;JPEG Files (*.jpg);;All Files (*)"));
 
     if (filename.isEmpty()) return;
 
-    // Grab the trajectory view
-    QPixmap pixmap = _trajectoryView->grab();
+    QPixmap pixmap = renderTrajectoryImage(1200, 900);
     if (pixmap.save(filename)) {
         updateStatus(tr("Image saved to %1").arg(filename));
     } else {
         QMessageBox::critical(this, tr("Error"), tr("Failed to save image"));
     }
-}
-
-void UwbDataVizWidget::onShowAnchorsToggled(bool checked)
-{
-    _trajectoryView->setShowAnchors(checked);
-}
-
-void UwbDataVizWidget::onShowGridToggled(bool checked)
-{
-    _trajectoryView->setShowGrid(checked);
-}
-
-void UwbDataVizWidget::onResetView()
-{
-    _trajectoryView->setTrajectory(_currentPoints);
 }
 
 void UwbDataVizWidget::onTagSelectionChanged(int index)
@@ -575,6 +518,195 @@ void UwbDataVizWidget::onDockerError(const QString &error)
 {
     updateStatus(tr("Docker Error: %1").arg(error), true);
     QMessageBox::warning(this, tr("Docker Error"), error);
+}
+
+QPixmap UwbDataVizWidget::renderTrajectoryImage(int width, int height) const
+{
+    QPixmap pixmap(width, height);
+    pixmap.fill(QColor(248, 250, 252));
+    QPainter p(&pixmap);
+    p.setRenderHint(QPainter::Antialiasing);
+
+    const int margin = 70;
+    QRect plotRect(margin, margin, width - 2 * margin, height - 2 * margin);
+
+    // Compute data bounds (include anchors)
+    double minX = 1e10, minY = 1e10, maxX = -1e10, maxY = -1e10;
+    for (const auto &pt : _currentPoints) {
+        minX = std::min(minX, pt.x()); maxX = std::max(maxX, pt.x());
+        minY = std::min(minY, pt.y()); maxY = std::max(maxY, pt.y());
+    }
+    for (const auto &a : _anchors) {
+        minX = std::min(minX, a.x); maxX = std::max(maxX, a.x);
+        minY = std::min(minY, a.y); maxY = std::max(maxY, a.y);
+    }
+    double spanX = maxX - minX;
+    double spanY = maxY - minY;
+    double padX = std::max(spanX * 0.12, 0.5);
+    double padY = std::max(spanY * 0.12, 0.5);
+    minX -= padX; maxX += padX;
+    minY -= padY; maxY += padY;
+    spanX = maxX - minX;
+    spanY = maxY - minY;
+
+    // Map world → pixel (Y flipped: world Y up, screen Y down)
+    auto toPixel = [&](double wx, double wy) -> QPointF {
+        double px = plotRect.left() + (wx - minX) / spanX * plotRect.width();
+        double py = plotRect.bottom() - (wy - minY) / spanY * plotRect.height();
+        return QPointF(px, py);
+    };
+
+    // White plot background
+    p.setPen(QPen(QColor(203, 213, 225), 1.5));
+    p.setBrush(Qt::white);
+    p.drawRect(plotRect);
+
+    // Grid lines
+    auto niceStep = [](double span, int ticks) -> double {
+        double step = span / ticks;
+        double mag = std::pow(10.0, std::floor(std::log10(step)));
+        double n = step / mag;
+        if (n < 2) return mag;
+        if (n < 5) return 2 * mag;
+        return 5 * mag;
+    };
+    QPen gridPen(QColor(228, 231, 235), 1);
+    p.setPen(gridPen);
+    QFont labelFont;
+    labelFont.setPointSize(8);
+    p.setFont(labelFont);
+    p.setPen(QColor(100, 116, 139));
+
+    double stepX = niceStep(spanX, 6);
+    double stepY = niceStep(spanY, 6);
+    double gx0 = std::ceil(minX / stepX) * stepX;
+    double gy0 = std::ceil(minY / stepY) * stepY;
+
+    for (double gx = gx0; gx <= maxX + 1e-9; gx += stepX) {
+        QPointF top = toPixel(gx, maxY);
+        QPointF bot = toPixel(gx, minY);
+        p.setPen(gridPen);
+        p.drawLine(top, bot);
+        p.setPen(QColor(100, 116, 139));
+        p.drawText(QRectF(bot.x() - 30, bot.y() + 4, 60, 16),
+                   Qt::AlignCenter, QString::number(gx, 'f', 2));
+    }
+    for (double gy = gy0; gy <= maxY + 1e-9; gy += stepY) {
+        QPointF left  = toPixel(minX, gy);
+        QPointF right = toPixel(maxX, gy);
+        p.setPen(gridPen);
+        p.drawLine(left, right);
+        p.setPen(QColor(100, 116, 139));
+        p.drawText(QRectF(left.x() - margin + 2, left.y() - 8, margin - 6, 16),
+                   Qt::AlignRight | Qt::AlignVCenter, QString::number(gy, 'f', 2));
+    }
+
+    // Axis labels
+    QFont axisFont;
+    axisFont.setPointSize(9);
+    axisFont.setBold(true);
+    p.setFont(axisFont);
+    p.setPen(QColor(51, 65, 85));
+    p.drawText(QRectF(0, height - 20, width, 18), Qt::AlignCenter, "X (m)");
+    p.save();
+    p.translate(14, height / 2);
+    p.rotate(-90);
+    p.drawText(QRectF(-60, -8, 120, 16), Qt::AlignCenter, "Y (m)");
+    p.restore();
+
+    // Anchors
+    for (const auto &a : _anchors) {
+        QPointF ap = toPixel(a.x, a.y);
+        p.setPen(QPen(QColor(124, 45, 18), 2));
+        p.setBrush(QColor(217, 72, 15));
+        p.drawEllipse(ap, 8, 8);
+        QFont af; af.setPointSize(8); af.setBold(true);
+        p.setFont(af);
+        p.setPen(QColor(124, 45, 18));
+        p.drawText(QRectF(ap.x() + 10, ap.y() - 18, 120, 16),
+                   Qt::AlignLeft | Qt::AlignVCenter,
+                   QString("%1 (%2,%3)").arg(a.name).arg(a.x,'f',2).arg(a.y,'f',2));
+    }
+
+    if (_currentPoints.size() < 2) {
+        p.end();
+        return pixmap;
+    }
+
+    // Trajectory path
+    QPainterPath path;
+    path.moveTo(toPixel(_currentPoints[0].x(), _currentPoints[0].y()));
+    for (int i = 1; i < _currentPoints.size(); ++i)
+        path.lineTo(toPixel(_currentPoints[i].x(), _currentPoints[i].y()));
+
+    p.setPen(QPen(QColor(37, 99, 235), 2.5, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    p.setBrush(Qt::NoBrush);
+    p.drawPath(path);
+
+    // Trajectory dots
+    p.setPen(Qt::NoPen);
+    p.setBrush(QColor(37, 99, 235));
+    for (const auto &pt : _currentPoints) {
+        QPointF pp = toPixel(pt.x(), pt.y());
+        p.drawEllipse(pp, 3, 3);
+    }
+
+    // Start marker (green circle with "S")
+    QPointF startPx = toPixel(_currentPoints.first().x(), _currentPoints.first().y());
+    p.setPen(QPen(Qt::white, 1.5));
+    p.setBrush(QColor(22, 163, 74));
+    p.drawEllipse(startPx, 10, 10);
+    QFont markerFont; markerFont.setPointSize(8); markerFont.setBold(true);
+    p.setFont(markerFont);
+    p.setPen(Qt::white);
+    p.drawText(QRectF(startPx.x() - 10, startPx.y() - 10, 20, 20), Qt::AlignCenter, "S");
+
+    // End marker (red circle with "E")
+    QPointF endPx = toPixel(_currentPoints.last().x(), _currentPoints.last().y());
+    p.setPen(QPen(Qt::white, 1.5));
+    p.setBrush(QColor(220, 38, 38));
+    p.drawEllipse(endPx, 10, 10);
+    p.setPen(Qt::white);
+    p.drawText(QRectF(endPx.x() - 10, endPx.y() - 10, 20, 20), Qt::AlignCenter, "E");
+
+    // Legend
+    int lx = plotRect.right() - 130, ly = plotRect.top() + 10;
+    p.setPen(QPen(QColor(203, 213, 225), 1));
+    p.setBrush(QColor(255, 255, 255, 220));
+    p.drawRoundedRect(lx - 8, ly - 6, 138, 80, 6, 6);
+    QFont legFont; legFont.setPointSize(8);
+    p.setFont(legFont);
+    // trajectory line
+    p.setPen(QPen(QColor(37, 99, 235), 2.5));
+    p.drawLine(lx, ly + 8, lx + 22, ly + 8);
+    p.setPen(QColor(51, 65, 85));
+    p.drawText(lx + 28, ly + 13, tr("Trajectory"));
+    // start
+    p.setPen(Qt::NoPen); p.setBrush(QColor(22, 163, 74));
+    p.drawEllipse(QPointF(lx + 11, ly + 30), 7, 7);
+    p.setPen(Qt::white); p.setFont(markerFont);
+    p.drawText(QRectF(lx + 4, ly + 23, 14, 14), Qt::AlignCenter, "S");
+    p.setFont(legFont); p.setPen(QColor(51, 65, 85));
+    p.drawText(lx + 28, ly + 35, tr("Start"));
+    // end
+    p.setPen(Qt::NoPen); p.setBrush(QColor(220, 38, 38));
+    p.drawEllipse(QPointF(lx + 11, ly + 52), 7, 7);
+    p.setPen(Qt::white); p.setFont(markerFont);
+    p.drawText(QRectF(lx + 4, ly + 45, 14, 14), Qt::AlignCenter, "E");
+    p.setFont(legFont); p.setPen(QColor(51, 65, 85));
+    p.drawText(lx + 28, ly + 57, tr("End"));
+
+    // Title
+    QFont titleFont; titleFont.setPointSize(12); titleFont.setBold(true);
+    p.setFont(titleFont);
+    p.setPen(QColor(30, 41, 59));
+    QString tagId = _currentPoints.first().tagId();
+    QString title = tr("UWB Trajectory — Tag: %1  (%2 points)")
+                    .arg(tagId).arg(_currentPoints.size());
+    p.drawText(QRectF(0, 6, width, 30), Qt::AlignCenter, title);
+
+    p.end();
+    return pixmap;
 }
 
 // Public accessor for write service
