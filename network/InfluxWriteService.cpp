@@ -152,7 +152,13 @@ QString InfluxWriteService::buildLineProtocol(const UwbDataPoint &point) const
 
 void InfluxWriteService::writeDataPoint(const UwbDataPoint &point)
 {
-    if (!_enabled || !_config.isValid()) {
+    if (!_enabled) {
+        return;
+    }
+    if (!_config.isValid()) {
+        qDebug() << "InfluxWriteService: config invalid, dropping point. url=" << _config.url()
+                 << "token empty=" << _config.token().isEmpty()
+                 << "org=" << _config.org() << "bucket=" << _config.bucket();
         return;
     }
 

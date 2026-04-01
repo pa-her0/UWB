@@ -187,11 +187,13 @@ void UwbTrajectoryView::drawTrajectory()
 
     if (_points.size() < 2) return;
 
+    // QGraphicsScene Y-axis points down, UWB coordinates Y-axis points up
+    // Negate Y to flip correctly
     QPainterPath path;
-    path.moveTo(_points[0].x(), _points[0].y());
+    path.moveTo(_points[0].x(), -_points[0].y());
 
     for (int i = 1; i < _points.size(); ++i) {
-        path.lineTo(_points[i].x(), _points[i].y());
+        path.lineTo(_points[i].x(), -_points[i].y());
     }
 
     _trajectoryPath = new QGraphicsPathItem(path);
@@ -204,12 +206,14 @@ void UwbTrajectoryView::drawTrajectory()
 
     // Add clickable points
     for (int i = 0; i < _points.size(); ++i) {
+        double px = _points[i].x();
+        double py = -_points[i].y();
         QGraphicsEllipseItem *point = new QGraphicsEllipseItem(
-            _points[i].x() - POINT_RADIUS, _points[i].y() - POINT_RADIUS,
+            px - POINT_RADIUS, py - POINT_RADIUS,
             POINT_RADIUS * 2, POINT_RADIUS * 2);
         point->setBrush(QColor(37, 99, 235));
         point->setPen(Qt::NoPen);
-        point->setData(0, i); // Store index
+        point->setData(0, i);
         point->setAcceptHoverEvents(true);
         point->setToolTip(QString("Time: %1\nX: %2\nY: %3")
             .arg(_points[i].time().toString("yyyy-MM-dd hh:mm:ss.zzz"))
@@ -230,19 +234,20 @@ void UwbTrajectoryView::drawAnchors()
     QColor anchorBorder(124, 45, 18);
 
     for (const auto &anchor : _anchors) {
-        // Anchor circle
+        double ax = anchor.x;
+        double ay = -anchor.y; // flip Y
+
         QGraphicsEllipseItem *circle = new QGraphicsEllipseItem(
-            anchor.x - ANCHOR_RADIUS, anchor.y - ANCHOR_RADIUS,
+            ax - ANCHOR_RADIUS, ay - ANCHOR_RADIUS,
             ANCHOR_RADIUS * 2, ANCHOR_RADIUS * 2);
         circle->setBrush(anchorColor);
         circle->setPen(QPen(anchorBorder, 2));
         _scene->addItem(circle);
         _anchorItems.append(circle);
 
-        // Anchor label
         QGraphicsTextItem *label = new QGraphicsTextItem(
             QString("%1 (%2, %3)").arg(anchor.name).arg(anchor.x, 0, 'f', 2).arg(anchor.y, 0, 'f', 2));
-        label->setPos(anchor.x + 12, anchor.y - 20);
+        label->setPos(ax + 12, ay - 20);
         label->setDefaultTextColor(anchorBorder);
         QFont font = label->font();
         font.setPointSize(10);
@@ -270,14 +275,14 @@ void UwbTrajectoryView::drawStartEnd()
 
     // Start point - green
     _startPoint = new QGraphicsEllipseItem(
-        _points[0].x() - 8, _points[0].y() - 8, 16, 16);
+        _points[0].x() - 8, -_points[0].y() - 8, 16, 16);
     _startPoint->setBrush(QColor(22, 163, 74));
     _startPoint->setPen(Qt::NoPen);
     _scene->addItem(_startPoint);
 
     // End point - red
     _endPoint = new QGraphicsEllipseItem(
-        _points.last().x() - 8, _points.last().y() - 8, 16, 16);
+        _points.last().x() - 8, -_points.last().y() - 8, 16, 16);
     _endPoint->setBrush(QColor(220, 38, 38));
     _endPoint->setPen(Qt::NoPen);
     _scene->addItem(_endPoint);
@@ -291,7 +296,7 @@ void UwbTrajectoryView::highlightPoint(int index)
 
     const TrajectoryPoint &point = _points[index];
     _highlightPoint = new QGraphicsEllipseItem(
-        point.x() - 12, point.y() - 12, 24, 24);
+        point.x() - 12, -point.y() - 12, 24, 24);
     _highlightPoint->setBrush(Qt::transparent);
     _highlightPoint->setPen(QPen(QColor(250, 204, 21), 3)); // Yellow ring
     _scene->addItem(_highlightPoint);
@@ -317,19 +322,18 @@ QRectF UwbTrajectoryView::dataBoundingRect() const
 
     for (const auto &p : _points) {
         minX = std::min(minX, p.x());
-        minY = std::min(minY, p.y());
+        minY = std::min(minY, -p.y()); // flipped Y
         maxX = std::max(maxX, p.x());
-        maxY = std::max(maxY, p.y());
+        maxY = std::max(maxY, -p.y()); // flipped Y
     }
 
     for (const auto &a : _anchors) {
         minX = std::min(minX, a.x);
-        minY = std::min(minY, a.y);
+        minY = std::min(minY, -a.y); // flipped Y
         maxX = std::max(maxX, a.x);
-        maxY = std::max(maxY, a.y);
+        maxY = std::max(maxY, -a.y); // flipped Y
     }
 
-    // Add padding (10%)
     double padX = std::max((maxX - minX) * 0.1, 0.5);
     double padY = std::max((maxY - minY) * 0.1, 0.5);
 
@@ -417,7 +421,7 @@ int UwbTrajectoryView::findNearestPoint(const QPointF &scenePos)
 
     for (int i = 0; i < _points.size(); ++i) {
         double dx = _points[i].x() - scenePos.x();
-        double dy = _points[i].y() - scenePos.y();
+        double dy = (-_points[i].y()) - scenePos.y(); // match flipped Y
         double dist = std::sqrt(dx * dx + dy * dy);
         if (dist < minDist) {
             minDist = dist;

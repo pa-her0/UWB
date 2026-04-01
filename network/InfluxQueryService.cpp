@@ -62,6 +62,35 @@ QString InfluxQueryService::formatTime(const QDateTime &dt) const
     return dt.toUTC().toString("yyyy-MM-ddThh:mm:ssZ");
 }
 
+// InfluxDB returns nanosecond timestamps like 2026-03-25T12:34:56.123456789Z
+// Qt can only parse up to milliseconds, so truncate to ms precision
+static QDateTime parseInfluxTime(const QString &timeStr)
+{
+    if (timeStr.isEmpty()) return QDateTime();
+
+    // Try standard ISO first (handles up to ms)
+    QDateTime t = QDateTime::fromString(timeStr, Qt::ISODate);
+    if (t.isValid()) return t;
+
+    // Truncate sub-second part to 3 digits (ms) and retry
+    // Format: 2026-03-25T12:34:56.123456789Z  →  2026-03-25T12:34:56.123Z
+    QString s = timeStr;
+    int dotPos = s.indexOf('.');
+    if (dotPos >= 0) {
+        int zPos = s.indexOf('Z', dotPos);
+        if (zPos < 0) zPos = s.length();
+        // Keep only 3 decimal digits
+        QString truncated = s.left(dotPos + 1) + s.mid(dotPos + 1, 3).leftJustified(3, '0') + "Z";
+        t = QDateTime::fromString(truncated, "yyyy-MM-ddThh:mm:ss.zzzZ");
+        if (t.isValid()) return t;
+    }
+
+    // Last resort: strip sub-seconds entirely
+    t = QDateTime::fromString(s.left(19), "yyyy-MM-ddThh:mm:ss");
+    t.setTimeSpec(Qt::UTC);
+    return t;
+}
+
 void InfluxQueryService::testConnection()
 {
     cancelRequest();
@@ -197,7 +226,9 @@ QStringList InfluxQueryService::parseTagListResponse(const QByteArray &data)
         if (!headerFound) {
             // This is the header row - find _value column index
             for (int i = 0; i < cols.size(); ++i) {
-                if (cols[i].trimmed() == "_value") {
+                QString colName = cols[i].trimmed();
+                colName.remove('"');
+                if (colName == "_value") {
                     valueIdx = i;
                     break;
                 }
@@ -349,8 +380,11 @@ QList<TrajectoryPoint> InfluxQueryService::parseTrajectoryResponse(const QByteAr
 
         if (!headerFound) {
             QStringList headers = line.split(',');
-            for (int i = 0; i < headers.size(); ++i)
-                colIndex[headers[i].trimmed()] = i;
+            for (int i = 0; i < headers.size(); ++i) {
+                QString colName = headers[i].trimmed();
+                colName.remove('"');
+                colIndex[colName] = i;
+            }
             headerFound = true;
             continue;
         }
@@ -368,10 +402,10 @@ QList<TrajectoryPoint> InfluxQueryService::parseTrajectoryResponse(const QByteAr
 
         QString timeStr = cols[timeIdx].trimmed();
         QString tagId   = cols[tagIdx].trimmed();
+        tagId.remove('"');
 
-        QDateTime time = QDateTime::fromString(timeStr, Qt::ISODate);
-        if (!time.isValid())
-            time = QDateTime::fromString(timeStr, "yyyy-MM-ddThh:mm:ss.zzzZ");
+        QDateTime time = parseInfluxTime(timeStr);
+        if (!time.isValid()) continue;
 
         double x = 0.0, y = 0.0, z = 0.0;
         bool xOk = false, yOk = false;
@@ -380,7 +414,7 @@ QList<TrajectoryPoint> InfluxQueryService::parseTrajectoryResponse(const QByteAr
         if (yIdx >= 0 && yIdx < cols.size()) y = cols[yIdx].trimmed().toDouble(&yOk);
         if (zIdx >= 0 && zIdx < cols.size()) z = cols[zIdx].trimmed().toDouble();
 
-        if (xOk && yOk && time.isValid()) {
+        if (xOk && yOk) {
             points.append(TrajectoryPoint(time, tagId, x, y, z));
         }
     }
@@ -472,8 +506,11 @@ QList<TrajectoryPoint> InfluxQueryService::parseTelemetryResponse(const QByteArr
 
         if (!headerFound) {
             QStringList headers = line.split(',');
-            for (int i = 0; i < headers.size(); ++i)
-                colIndex[headers[i].trimmed()] = i;
+            for (int i = 0; i < headers.size(); ++i) {
+                QString colName = headers[i].trimmed();
+                colName.remove('"');
+                colIndex[colName] = i;
+            }
             headerFound = true;
             continue;
         }
@@ -495,10 +532,9 @@ QList<TrajectoryPoint> InfluxQueryService::parseTelemetryResponse(const QByteArr
 
         QString timeStr = cols[timeIdx].trimmed();
         QString tagId   = cols[tagIdx].trimmed();
+        tagId.remove('"');
 
-        QDateTime time = QDateTime::fromString(timeStr, Qt::ISODate);
-        if (!time.isValid())
-            time = QDateTime::fromString(timeStr, "yyyy-MM-ddThh:mm:ss.zzzZ");
+        QDateTime time = parseInfluxTime(timeStr);
         if (!time.isValid()) continue;
 
         TrajectoryPoint point;
