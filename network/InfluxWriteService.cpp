@@ -16,6 +16,7 @@ InfluxWriteService::InfluxWriteService(QObject *parent)
     , _enabled(false)
     , _isWriting(false)
     , _batchTimer(new QTimer(this))
+    , _lastBatchCount(0)
 {
     _batchTimer->setInterval(BATCH_INTERVAL_MS);
     connect(_batchTimer, &QTimer::timeout, this, &InfluxWriteService::onBatchTimer);
@@ -142,6 +143,10 @@ QString InfluxWriteService::buildLineProtocol(const UwbDataPoint &point) const
     qint64 timestampNs = point.timestamp.toMSecsSinceEpoch() * 1000000LL;
     line += QString(" %1").arg(timestampNs);
 
+    qDebug() << "Writing point - Tag:" << point.tagId
+             << "Time:" << point.timestamp.toString(Qt::ISODate)
+             << "X:" << point.x << "Y:" << point.y;
+
     return line;
 }
 
@@ -191,6 +196,9 @@ void InfluxWriteService::sendBatch()
 
     QString payload = lines.join("\n");
 
+    // Store count for success signal
+    _lastBatchCount = count;
+
     // Send to InfluxDB
     QString url = QString("%1/api/v2/write?org=%2&bucket=%3&precision=ns")
             .arg(_config.url())
@@ -215,7 +223,7 @@ void InfluxWriteService::onWriteFinished()
         emit writeError(error);
         qDebug() << "InfluxDB write error:" << error;
     } else {
-        emit writeSuccess(BATCH_SIZE);
+        emit writeSuccess(_lastBatchCount);
     }
 
     reply->deleteLater();

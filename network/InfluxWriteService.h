@@ -89,6 +89,7 @@ private:
 
     QQueue<UwbDataPoint> _writeQueue;
     QTimer *_batchTimer;
+    int _lastBatchCount;
     static const int BATCH_SIZE = 100;
     static const int BATCH_INTERVAL_MS = 500; // Flush every 500ms
 };

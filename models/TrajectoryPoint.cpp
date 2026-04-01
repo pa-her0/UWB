@@ -13,6 +13,8 @@ TrajectoryPoint::TrajectoryPoint()
     , _accelX(0.0), _accelY(0.0), _accelZ(0.0)
     , _gyroX(0.0), _gyroY(0.0), _gyroZ(0.0)
     , _magX(0.0), _magY(0.0), _magZ(0.0)
+    , _tagId()
+    , _time()
 {
     for (int i = 0; i < 8; ++i) {
         _ranges[i] = 0.0;

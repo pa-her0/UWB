@@ -10,6 +10,7 @@
 #include <QStringList>
 #include <QTextStream>
 #include <QDebug>
+#include <QMap>
 
 InfluxQueryService::InfluxQueryService(QObject *parent)
     : QObject(parent)
@@ -112,7 +113,11 @@ QString InfluxQueryService::buildTagListQuery(const QDateTime &startTime, const 
         stopClause = QString(", stop: time(v: \"%1\")").arg(endStr);
     }
 
-    QString rangeClause = QString("start: time(v: \"%1\")%2").arg(startStr).arg(stopClause);
+    // Build range parameter - schema.tagValues uses simple time strings, not time(v: "...")
+    QString rangeParam = QString("start: %1").arg(startStr);
+    if (!stopClause.isEmpty()) {
+        rangeParam += QString(", stop: %1").arg(endStr);
+    }
 
     return QString(
         "import \"influxdata/influxdb/schema\"\n\n"
@@ -122,7 +127,7 @@ QString InfluxQueryService::buildTagListQuery(const QDateTime &startTime, const 
         "  predicate: (r) => r._measurement == \"%2\",\n"
         "  %3\n"
         ")"
-    ).arg(_config.bucket()).arg(_config.measurement()).arg(rangeClause);
+    ).arg(_config.bucket()).arg(_config.measurement()).arg(rangeParam);
 }
 
 void InfluxQueryService::queryTagList(const QDateTime &startTime, const QDateTime &endTime)
@@ -292,6 +297,13 @@ void InfluxQueryService::onTrajectoryFinished()
 
     if (_currentReply->error() != QNetworkReply::NoError) {
         QString error = _currentReply->errorString();
+        QByteArray responseData = _currentReply->readAll();
+        QString serverError = QString::fromUtf8(responseData);
+        qDebug() << "Trajectory Error:" << error;
+        qDebug() << "Server Response:" << serverError;
+        if (!serverError.isEmpty()) {
+            error += " - " + serverError.left(200);
+        }
         _currentReply->deleteLater();
         _currentReply = nullptr;
         _isLoading = false;
@@ -317,21 +329,30 @@ QList<TrajectoryPoint> InfluxQueryService::parseTrajectoryResponse(const QByteAr
     QString content = QString::fromUtf8(data);
     QStringList lines = content.split('\n', QString::SkipEmptyParts);
 
+    if (lines.isEmpty()) return points;
+
+    // Parse header to get column indices
+    QString header = lines[0];
+    QStringList headers = header.split(',');
+    QMap<QString, int> colIndex;
+    for (int i = 0; i < headers.size(); ++i) {
+        colIndex[headers[i].trimmed()] = i;
+    }
+
+    int timeIdx = colIndex.value("_time", 2);
+    int tagIdx = colIndex.value("tag_id", 4);
+    int xIdx = colIndex.value("position_x_m", -1);
+    int yIdx = colIndex.value("position_y_m", -1);
+    int zIdx = colIndex.value("position_z_m", -1);
+
     // CSV format with pivot:
     // result,table,_time,_measurement,tag_id,position_x_m,position_y_m,position_z_m,...
-    bool firstLine = true;
-    for (const QString &line : lines) {
-        if (firstLine) {
-            firstLine = false;
-            continue;
-        }
+    for (int i = 1; i < lines.size(); ++i) {
+        QStringList cols = lines[i].split(',');
+        if (cols.size() < headers.size()) continue;
 
-        QStringList cols = line.split(',');
-        // Minimum columns: result, table, _time, _measurement, tag_id, x, y
-        if (cols.size() < 7) continue;
-
-        QString timeStr = cols[2].trimmed();
-        QString tagId = cols[4].trimmed();
+        QString timeStr = cols[timeIdx].trimmed();
+        QString tagId = cols[tagIdx].trimmed();
 
         // Parse timestamp
         QDateTime time = QDateTime::fromString(timeStr, Qt::ISODate);
@@ -339,31 +360,17 @@ QList<TrajectoryPoint> InfluxQueryService::parseTrajectoryResponse(const QByteAr
             time = QDateTime::fromString(timeStr, "yyyy-MM-ddThh:mm:ss.zzzZ");
         }
 
-        // Find column indices (they can vary based on query)
-        // For simplicity, assume position_x_m and position_y_m are in specific positions after pivot
-        // We need to parse based on the header
-        // Actually, after pivot, columns are: result,table,_time,_start,_stop,_measurement,tag_id,position_x_m,position_y_m,...
         double x = 0.0, y = 0.0, z = 0.0;
         bool xOk = false, yOk = false;
 
-        // Try to find x and y in the expected positions
-        // After pivot, fields become columns starting from index 7
-        for (int i = 7; i < cols.size(); ++i) {
-            QString colName = cols[i].trimmed();
-            // In CSV response after pivot, column names are in header
-            // Values start from the next line
+        if (xIdx >= 0 && xIdx < cols.size()) {
+            x = cols[xIdx].trimmed().toDouble(&xOk);
         }
-
-        // Simplified: parse assuming standard order after header parsing
-        // For now, try to parse x and y from known positions
-        if (cols.size() > 7) {
-            x = cols[7].trimmed().toDouble(&xOk);
+        if (yIdx >= 0 && yIdx < cols.size()) {
+            y = cols[yIdx].trimmed().toDouble(&yOk);
         }
-        if (cols.size() > 8) {
-            y = cols[8].trimmed().toDouble(&yOk);
-        }
-        if (cols.size() > 9) {
-            z = cols[9].trimmed().toDouble();
+        if (zIdx >= 0 && zIdx < cols.size()) {
+            z = cols[zIdx].trimmed().toDouble();
         }
 
         if (xOk && yOk && time.isValid()) {

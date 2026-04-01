@@ -1721,8 +1721,8 @@ void RTLSClient::trilaterateTag(int tid, int seq, int idx)
         InfluxWriteService *writeService = RTLSDisplayApplication::influxWriteService();
         if (writeService && writeService->isEnabled()) {
             UwbDataPoint point;
-            point.timestamp = QDateTime::currentDateTime();
-            point.tagId = QString("Tag %1").arg(tid);
+            point.timestamp = QDateTime::currentDateTimeUtc();
+            point.tagId = QString::number(tid);
 
             // Use filtered values if available, otherwise use raw values
             if (_usingFilter != 0 && (rp.fx != 0 || rp.fy != 0 || rp.fz != 0)) {
