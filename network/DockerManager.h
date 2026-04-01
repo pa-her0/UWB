@@ -44,7 +44,10 @@ public:
                             const QString &token);
 
     // Check if Docker is available
-    bool isDockerAvailable() const;
+    bool isDockerAvailable();
+
+    // Get the detected docker path (for debugging)
+    QString dockerPath() const;
 
 signals:
     void statusChanged(bool running);
@@ -71,6 +74,7 @@ private:
     QString _workingDir;
     bool _isRunning;
     QString _pendingCommand;
+    mutable QString _dockerPathCache;
 };
 
 #endif // DOCKERMANAGER_H

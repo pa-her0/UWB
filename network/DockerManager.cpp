@@ -46,6 +46,11 @@ QString DockerManager::workingDirectory() const
 
 QString DockerManager::findDockerCompose() const
 {
+    // Use cached docker path if available
+    if (!_dockerPathCache.isEmpty()) {
+        return _dockerPathCache + " compose";
+    }
+
     // Try docker compose (newer) first, then docker-compose (older)
     QStringList candidates;
     candidates << "docker compose"
@@ -68,12 +73,54 @@ QString DockerManager::findDockerCompose() const
     return "docker compose"; // Default fallback
 }
 
-bool DockerManager::isDockerAvailable() const
+bool DockerManager::isDockerAvailable()
 {
-    QProcess testProcess;
-    testProcess.start("docker", QStringList() << "version");
-    testProcess.waitForFinished(5000);
-    return testProcess.exitCode() == 0;
+    if (!_dockerPathCache.isEmpty()) {
+        return true;
+    }
+
+    // Try multiple ways to find docker
+    QStringList dockerCommands;
+    dockerCommands << "docker" << "docker.exe"
+                   << "C:/Program Files/Docker/Docker/resources/bin/docker.exe"
+                   << "C:/ProgramData/chocolatey/bin/docker.exe";
+
+    // Add PATH search
+    QString pathDocker = QStandardPaths::findExecutable("docker");
+    QString pathDockerExe = QStandardPaths::findExecutable("docker.exe");
+    if (!pathDocker.isEmpty()) dockerCommands << pathDocker;
+    if (!pathDockerExe.isEmpty()) dockerCommands << pathDockerExe;
+
+    for (const QString &cmd : dockerCommands) {
+        if (cmd.isEmpty()) continue;
+
+        QProcess testProcess;
+        testProcess.start(cmd, QStringList() << "version" << "--format" << "{{.Server.Version}}");
+        testProcess.waitForFinished(5000);
+
+        QString stderrOutput = QString::fromUtf8(testProcess.readAllStandardError()).trimmed();
+        QString stdoutOutput = QString::fromUtf8(testProcess.readAllStandardOutput()).trimmed();
+
+        qDebug() << "Testing Docker:" << cmd
+                 << "Exit code:" << testProcess.exitCode()
+                 << "Error:" << testProcess.errorString()
+                 << "Stderr:" << stderrOutput
+                 << "Stdout:" << stdoutOutput;
+
+        if (testProcess.exitCode() == 0 && !stdoutOutput.isEmpty()) {
+            _dockerPathCache = cmd;
+            qDebug() << "Docker found at:" << cmd;
+            return true;
+        }
+    }
+
+    qDebug() << "Docker not found in any location";
+    return false;
+}
+
+QString DockerManager::dockerPath() const
+{
+    return _dockerPathCache;
 }
 
 void DockerManager::executeCommand(const QString &command, const QStringList &args)
