@@ -1145,6 +1145,21 @@ Continue?</source>
         <translation>Docker 错误</translation>
     </message>
     <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="136"/>
+        <source>Real-time write enabled</source>
+        <translation>实时写入已启用</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="138"/>
+        <source>Real-time write disabled</source>
+        <translation>实时写入已禁用</translation>
+    </message>
+    <message>
+        <location filename="views/UwbDataVizWidget.cpp" line="121"/>
+        <source>Write error: %1</source>
+        <translation>写入错误: %1</translation>
+    </message>
+    <message>
         <location filename="network/DockerManager.cpp" line="82"/>
         <source>Previous command still running, please wait...</source>
         <translation>上一命令仍在运行，请稍候...</translation>

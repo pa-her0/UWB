@@ -112,15 +112,17 @@ QString InfluxQueryService::buildTagListQuery(const QDateTime &startTime, const 
         stopClause = QString(", stop: time(v: \"%1\")").arg(endStr);
     }
 
+    QString rangeClause = QString("start: time(v: \"%1\")%2").arg(startStr).arg(stopClause);
+
     return QString(
         "import \"influxdata/influxdb/schema\"\n\n"
         "schema.tagValues(\n"
         "  bucket: \"%1\",\n"
         "  tag: \"tag_id\",\n"
         "  predicate: (r) => r._measurement == \"%2\",\n"
-        "  start: time(v: \"%3\")%4\n"
+        "  %3\n"
         ")"
-    ).arg(_config.bucket()).arg(_config.measurement()).arg(startStr).arg(stopClause);
+    ).arg(_config.bucket()).arg(_config.measurement()).arg(rangeClause);
 }
 
 void InfluxQueryService::queryTagList(const QDateTime &startTime, const QDateTime &endTime)
@@ -128,6 +130,7 @@ void InfluxQueryService::queryTagList(const QDateTime &startTime, const QDateTim
     cancelRequest();
 
     QString fluxQuery = buildTagListQuery(startTime, endTime);
+    qDebug() << "TagList Query:" << fluxQuery;
     QString url = QString("%1/api/v2/query?org=%2").arg(_config.url()).arg(_config.org());
 
     QNetworkRequest request(url);
@@ -149,6 +152,13 @@ void InfluxQueryService::onTagListFinished()
 
     if (_currentReply->error() != QNetworkReply::NoError) {
         QString error = _currentReply->errorString();
+        QByteArray responseData = _currentReply->readAll();
+        QString serverError = QString::fromUtf8(responseData);
+        qDebug() << "TagList Error:" << error;
+        qDebug() << "Server Response:" << serverError;
+        if (!serverError.isEmpty()) {
+            error += " - " + serverError.left(200);
+        }
         _currentReply->deleteLater();
         _currentReply = nullptr;
         _isLoading = false;
@@ -223,27 +233,35 @@ QString InfluxQueryService::buildFluxQuery(const QString &tagId,
         fieldFilter = QString(" |> filter(fn: (r) => %1)").arg(fieldFilters.join(" or "));
     }
 
+    // Build range clause
+    QString rangeClause;
+    if (stopClause.isEmpty()) {
+        rangeClause = QString("start: time(v: \"%1\")").arg(startStr);
+    } else {
+        rangeClause = QString("start: time(v: \"%1\")%2").arg(startStr).arg(stopClause);
+    }
+
     // Default trajectory query (position_x_m, position_y_m)
     if (fields.isEmpty()) {
         return QString(
             "from(bucket: \"%1\")\n"
-            "  |> range(start: time(v: \"%2\")%3)\n"
-            "  |> filter(fn: (r) => r._measurement == \"%4\")\n"
-            "  |> filter(fn: (r) => r.tag_id == \"%5\")\n"
+            "  |> range(%2)\n"
+            "  |> filter(fn: (r) => r._measurement == \"%3\")\n"
+            "  |> filter(fn: (r) => r.tag_id == \"%4\")\n"
             "  |> filter(fn: (r) => r._field == \"position_x_m\" or r._field == \"position_y_m\" or r._field == \"position_z_m\")\n"
             "  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n"
             "  |> sort(columns: [\"_time\"])"
-        ).arg(_config.bucket()).arg(startStr).arg(stopClause).arg(_config.measurement()).arg(tagId);
+        ).arg(_config.bucket()).arg(rangeClause).arg(_config.measurement()).arg(tagId);
     }
 
     return QString(
         "from(bucket: \"%1\")\n"
-        "  |> range(start: time(v: \"%2\")%3)\n"
-        "  |> filter(fn: (r) => r._measurement == \"%4\")\n"
-        "  |> filter(fn: (r) => r.tag_id == \"%5\")%6\n"
+        "  |> range(%2)\n"
+        "  |> filter(fn: (r) => r._measurement == \"%3\")\n"
+        "  |> filter(fn: (r) => r.tag_id == \"%4\")%5\n"
         "  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n"
         "  |> sort(columns: [\"_time\"])"
-    ).arg(_config.bucket()).arg(startStr).arg(stopClause).arg(_config.measurement()).arg(tagId).arg(fieldFilter);
+    ).arg(_config.bucket()).arg(rangeClause).arg(_config.measurement()).arg(tagId).arg(fieldFilter);
 }
 
 void InfluxQueryService::queryTrajectory(const QString &tagId,
@@ -376,6 +394,7 @@ void InfluxQueryService::queryTelemetry(const QString &tagId,
     }
 
     QString fluxQuery = buildFluxQuery(tagId, startTime, endTime, queryFields);
+    qDebug() << "Telemetry Query:" << fluxQuery;
     QString url = QString("%1/api/v2/query?org=%2").arg(_config.url()).arg(_config.org());
 
     QNetworkRequest request(url);
@@ -397,6 +416,13 @@ void InfluxQueryService::onTelemetryFinished()
 
     if (_currentReply->error() != QNetworkReply::NoError) {
         QString error = _currentReply->errorString();
+        QByteArray responseData = _currentReply->readAll();
+        QString serverError = QString::fromUtf8(responseData);
+        qDebug() << "Telemetry Error:" << error;
+        qDebug() << "Server Response:" << serverError;
+        if (!serverError.isEmpty()) {
+            error += " - " + serverError.left(200);
+        }
         _currentReply->deleteLater();
         _currentReply = nullptr;
         _isLoading = false;

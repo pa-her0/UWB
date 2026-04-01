@@ -116,6 +116,15 @@ void UwbDataVizWidget::setupConnections()
     connect(_queryService, &InfluxQueryService::queryError, this, &UwbDataVizWidget::onQueryError);
     connect(_queryService, &InfluxQueryService::loadingChanged, this, &UwbDataVizWidget::onLoadingChanged);
 
+    // Write service status
+    connect(_writeService, &InfluxWriteService::writeSuccess, this, [this](int count) {
+        qDebug() << "InfluxDB write success:" << count << "points";
+    });
+    connect(_writeService, &InfluxWriteService::writeError, this, [this](const QString &error) {
+        updateStatus(tr("Write error: %1").arg(error), true);
+        qDebug() << "InfluxDB write error:" << error;
+    });
+
     // Trajectory view interaction
     connect(_trajectoryView, &UwbTrajectoryView::pointClicked, this, &UwbDataVizWidget::onPointClicked);
     connect(_trajectoryView, &UwbTrajectoryView::pointHovered, this, &UwbDataVizWidget::onPointHovered);
@@ -139,6 +148,9 @@ void UwbDataVizWidget::setupConnections()
             _config.setBucket(ui->bucketEdit->text());
             _config.setMeasurement(ui->measurementEdit->text());
             _writeService->setConfig(_config);
+            updateStatus(tr("Real-time write enabled"));
+        } else {
+            updateStatus(tr("Real-time write disabled"));
         }
     });
 
