@@ -410,8 +410,14 @@ QList<TrajectoryPoint> InfluxQueryService::parseTrajectoryResponse(const QByteAr
         double x = 0.0, y = 0.0, z = 0.0;
         bool xOk = false, yOk = false;
 
-        if (xIdx >= 0 && xIdx < cols.size()) x = cols[xIdx].trimmed().toDouble(&xOk);
-        if (yIdx >= 0 && yIdx < cols.size()) y = cols[yIdx].trimmed().toDouble(&yOk);
+        if (xIdx >= 0 && xIdx < cols.size()) {
+            QString xStr = cols[xIdx].trimmed();
+            if (!xStr.isEmpty()) x = xStr.toDouble(&xOk);
+        }
+        if (yIdx >= 0 && yIdx < cols.size()) {
+            QString yStr = cols[yIdx].trimmed();
+            if (!yStr.isEmpty()) y = yStr.toDouble(&yOk);
+        }
         if (zIdx >= 0 && zIdx < cols.size()) z = cols[zIdx].trimmed().toDouble();
 
         if (xOk && yOk) {
@@ -544,8 +550,12 @@ QList<TrajectoryPoint> InfluxQueryService::parseTelemetryResponse(const QByteArr
         if (xIdx < 0 || yIdx < 0 || xIdx >= cols.size() || yIdx >= cols.size()) continue;
 
         bool xOk = false, yOk = false;
-        double x = cols[xIdx].trimmed().toDouble(&xOk);
-        double y = cols[yIdx].trimmed().toDouble(&yOk);
+        QString xStr = cols[xIdx].trimmed();
+        QString yStr = cols[yIdx].trimmed();
+        // Skip rows where position fields are empty (pivot gap — no value for this timestamp)
+        if (xStr.isEmpty() || yStr.isEmpty()) continue;
+        double x = xStr.toDouble(&xOk);
+        double y = yStr.toDouble(&yOk);
         if (!xOk || !yOk) continue;
 
         auto safeDouble = [&](int idx) -> double {

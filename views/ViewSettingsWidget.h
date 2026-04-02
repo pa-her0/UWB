@@ -148,7 +148,7 @@ private slots:
     void tagTableClicked(int r, int c);
     void on_BTN_sendSocket_clicked();
     void showExplainBtnClicked();
-
+    void onCadToPngClicked();
 
     void udpSendData();
 private:

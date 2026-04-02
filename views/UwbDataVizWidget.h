@@ -76,6 +76,7 @@ private:
     void loadAnchorConfig();
     void setDefaultTimeRange();
     QPixmap renderTrajectoryImage(int width, int height) const;
+    QList<TrajectoryPoint> sortAndDedup(const QList<TrajectoryPoint> &points);
 
     Ui::UwbDataVizWidget *ui;
     InfluxQueryService *_queryService;

@@ -104,6 +104,7 @@ ViewSettingsWidget::ViewSettingsWidget(QWidget *parent) :
     QObject::connect(myGraphicsWidget->ui->anchorTable, SIGNAL(cellChanged(int, int)), this, SLOT(anchorTableChanged(int, int)));
     QObject::connect(myGraphicsWidget->ui->tagTable, SIGNAL(cellClicked(int, int)), this, SLOT(tagTableClicked(int, int)));
     QObject::connect(ui->showExplainBtn, SIGNAL(clicked()), this, SLOT(showExplainBtnClicked()));
+    QObject::connect(ui->cadToPngBtn, SIGNAL(clicked()), this, SLOT(onCadToPngClicked()));
 
 
     QObject::connect(ui->tagHistoryN, SIGNAL(valueChanged(int)), this, SLOT(tagHistoryNumberValueChanged(int)));
@@ -1828,6 +1829,58 @@ void ViewSettingsWidget::showExplainBtnClicked()
     mymsgbox->addButton(okbtn, QMessageBox::AcceptRole);
     mymsgbox->show();
     mymsgbox->exec();//阻塞等待用户输入
+}
+
+void ViewSettingsWidget::onCadToPngClicked()
+{
+    // 1. 选择 DXF 文件
+    QString dxfPath = QFileDialog::getOpenFileName(this, "打开 CAD 文件", QString(), "CAD 文件 (*.dxf)");
+    if (dxfPath.isNull()) return;
+
+    // 2. 确定输出 PNG 路径（同目录，同名）
+    QFileInfo fi(dxfPath);
+    QString pngPath = fi.absolutePath() + "/" + fi.baseName() + ".png";
+
+    // 3. 找 Python 脚本
+    QString scriptPath = QCoreApplication::applicationDirPath() + "/tools/cad_to_png.py";
+    if (!QFile::exists(scriptPath)) {
+        // 开发时从源码目录找
+        scriptPath = QDir::currentPath() + "/tools/cad_to_png.py";
+    }
+
+    ui->cadToPngBtn->setEnabled(false);
+    ui->cadToPngBtn->setText("转换中...");
+
+    QProcess *proc = new QProcess(this);
+    connect(proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
+            this, [=](int exitCode, QProcess::ExitStatus) {
+        ui->cadToPngBtn->setEnabled(true);
+        ui->cadToPngBtn->setText("CAD(DXF) → PNG 转换...");
+
+        if (exitCode == 0 && QFile::exists(pngPath)) {
+            // 自动加载为底图
+            if (applyFloorPlanPic(pngPath) == 0) {
+                RTLSDisplayApplication::viewSettings()->floorplanShow(true);
+                RTLSDisplayApplication::viewSettings()->setFloorplanPath(pngPath);
+                QMessageBox::information(this, "转换成功",
+                    QString("已生成底图：\n%1\n\n请在底图与栅格面板中设置缩放和偏移以完成标定。").arg(pngPath));
+            }
+        } else {
+            QString errMsg = proc->readAllStandardError();
+            QMessageBox::critical(this, "转换失败",
+                QString("CAD → PNG 转换失败（退出码 %1）\n\n请确认已安装 ezdxf 和 matplotlib：\n  pip install ezdxf matplotlib\n\n错误信息：\n%2")
+                .arg(exitCode).arg(errMsg));
+        }
+        proc->deleteLater();
+    });
+
+    proc->start("python3", QStringList() << scriptPath << dxfPath << pngPath);
+    if (!proc->waitForStarted(3000)) {
+        ui->cadToPngBtn->setEnabled(true);
+        ui->cadToPngBtn->setText("CAD(DXF) → PNG 转换...");
+        QMessageBox::critical(this, "错误", "无法启动 python3，请确认 Python 3 已安装并在 PATH 中。");
+        proc->deleteLater();
+    }
 }
 
 

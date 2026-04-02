@@ -10,6 +10,7 @@
 #include "InfluxWriteService.h"
 #include "DockerManager.h"
 #include "RTLSDisplayApplication.h"
+#include "ViewSettings.h"
 
 #include <QMessageBox>
 #include <QFileDialog>
@@ -293,16 +294,39 @@ void UwbDataVizWidget::onQueryClicked()
 
 void UwbDataVizWidget::onTrajectoryReady(const QList<TrajectoryPoint> &points)
 {
-    _currentPoints = points;
-    populateTable(points);
-    updateStatus(tr("Loaded %1 points").arg(points.size()));
+    _currentPoints = sortAndDedup(points);
+    populateTable(_currentPoints);
+    updateStatus(tr("Loaded %1 points").arg(_currentPoints.size()));
 }
 
 void UwbDataVizWidget::onTelemetryReady(const QList<TrajectoryPoint> &points)
 {
-    _currentPoints = points;
-    populateTable(points);
-    updateStatus(tr("Loaded %1 points").arg(points.size()));
+    _currentPoints = sortAndDedup(points);
+    populateTable(_currentPoints);
+    updateStatus(tr("Loaded %1 points").arg(_currentPoints.size()));
+}
+
+QList<TrajectoryPoint> UwbDataVizWidget::sortAndDedup(const QList<TrajectoryPoint> &points)
+{
+    // Sort by timestamp — Flux pivot() only sorts within each result table,
+    // so cross-table data arrives out of order, causing the trajectory to
+    // draw lines jumping back and forth across the map.
+    QList<TrajectoryPoint> sorted = points;
+    std::stable_sort(sorted.begin(), sorted.end(),
+        [](const TrajectoryPoint &a, const TrajectoryPoint &b) {
+            return a.time() < b.time();
+        });
+
+    // Deduplicate exact same timestamp (can happen when pivot returns
+    // overlapping tables for the same tag).
+    QList<TrajectoryPoint> result;
+    result.reserve(sorted.size());
+    for (const TrajectoryPoint &pt : sorted) {
+        if (!result.isEmpty() && result.last().time() == pt.time())
+            continue;
+        result.append(pt);
+    }
+    return result;
 }
 
 void UwbDataVizWidget::onQueryError(const QString &error)
@@ -561,6 +585,40 @@ QPixmap UwbDataVizWidget::renderTrajectoryImage(int width, int height) const
     p.setBrush(Qt::white);
     p.drawRect(plotRect);
 
+    // Floor plan background (if loaded and calibrated)
+    {
+        ViewSettings *vs = RTLSDisplayApplication::viewSettings();
+        const QPixmap &fp = vs->floorplanPixmap();
+        if (!fp.isNull() && vs->floorplanXScale() != 0 && vs->floorplanYScale() != 0) {
+            double xscale  = vs->floorplanXScale();   // pixels per metre
+            double yscale  = vs->floorplanYScale();
+            double xoffset = vs->floorplanXOffset();  // pixel offset
+            double yoffset = vs->floorplanYOffset();
+
+            // Pixel (0,0) of the image maps to world coords:
+            double fpWorldX0 = -xoffset / xscale;
+            double fpWorldY0 = -yoffset / yscale;
+            // Pixel (w,h) maps to:
+            double fpWorldX1 = (fp.width()  - xoffset) / xscale;
+            double fpWorldY1 = (fp.height() - yoffset) / yscale;
+
+            // Handle flip
+            if (vs->floorplanFlipX()) std::swap(fpWorldX0, fpWorldX1);
+            if (vs->floorplanFlipY()) std::swap(fpWorldY0, fpWorldY1);
+
+            QPointF tl = toPixel(fpWorldX0, fpWorldY1); // world Y up → screen top
+            QPointF br = toPixel(fpWorldX1, fpWorldY0);
+            QRectF destRect(tl, br);
+
+            p.save();
+            p.setClipRect(plotRect);
+            p.setOpacity(0.45);
+            p.drawPixmap(destRect.toRect(), fp);
+            p.setOpacity(1.0);
+            p.restore();
+        }
+    }
+
     // Grid lines
     auto niceStep = [](double span, int ticks) -> double {
         double step = span / ticks;
@@ -625,7 +683,7 @@ QPixmap UwbDataVizWidget::renderTrajectoryImage(int width, int height) const
         p.setPen(QColor(124, 45, 18));
         p.drawText(QRectF(ap.x() + 10, ap.y() - 18, 120, 16),
                    Qt::AlignLeft | Qt::AlignVCenter,
-                   QString("%1 (%2,%3)").arg(a.name).arg(a.x,'f',2).arg(a.y,'f',2));
+                   QString("%1 (%2,%3)").arg(a.name).arg(a.x, 0, 'f', 2).arg(a.y, 0, 'f', 2));
     }
 
     if (_currentPoints.size() < 2) {

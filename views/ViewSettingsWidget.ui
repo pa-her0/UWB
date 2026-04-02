@@ -2247,6 +2247,43 @@
         <string>打开</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="cadToPngBtn">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>290</y>
+         <width>201</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>CAD(DXF) → PNG 转换...</string>
+       </property>
+       <property name="toolTip">
+        <string>将 CAD DXF 文件转换为 PNG 底图，然后手动标定后用于定位系统</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="cadTipLabel">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>316</y>
+         <width>201</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>流程: CAD→PNG→标定→底图</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: gray; font-size: 10px; font-style: italic;</string>
+       </property>
+      </widget>
       <widget class="QCheckBox" name="saveFP">
        <property name="geometry">
         <rect>
