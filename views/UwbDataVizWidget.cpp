@@ -692,11 +692,19 @@ QPixmap UwbDataVizWidget::renderTrajectoryImage(int width, int height) const
         return pixmap;
     }
 
-    // Trajectory path
+    // Trajectory path — break the path when consecutive points jump more than
+    // the threshold (UWB noise outliers), so they don't get connected by lines.
+    const double jumpThreshold = 2.0; // metres
     QPainterPath path;
     path.moveTo(toPixel(_currentPoints[0].x(), _currentPoints[0].y()));
-    for (int i = 1; i < _currentPoints.size(); ++i)
-        path.lineTo(toPixel(_currentPoints[i].x(), _currentPoints[i].y()));
+    for (int i = 1; i < _currentPoints.size(); ++i) {
+        double dx = _currentPoints[i].x() - _currentPoints[i-1].x();
+        double dy = _currentPoints[i].y() - _currentPoints[i-1].y();
+        if (std::sqrt(dx*dx + dy*dy) > jumpThreshold)
+            path.moveTo(toPixel(_currentPoints[i].x(), _currentPoints[i].y()));
+        else
+            path.lineTo(toPixel(_currentPoints[i].x(), _currentPoints[i].y()));
+    }
 
     p.setPen(QPen(QColor(37, 99, 235), 2.5, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
     p.setBrush(Qt::NoBrush);
