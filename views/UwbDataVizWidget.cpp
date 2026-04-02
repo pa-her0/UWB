@@ -62,7 +62,7 @@ UwbDataVizWidget::UwbDataVizWidget(QWidget *parent)
         ui->stopDockerBtn->setEnabled(false);
 
         // Show a one-time notice about Docker alternatives
-        QTimer::singleShot(1000, [this]() {
+        QTimer::singleShot(1000, this, [this]() {
             QMessageBox::information(this, tr("Docker Not Found"),
                 tr("Docker is not detected on this system.\n\n"
                    "You have the following options:\n\n"
@@ -174,6 +174,7 @@ void UwbDataVizWidget::loadAnchorConfig()
         if (!file.open(QIODevice::ReadOnly)) continue;
 
         QByteArray data = file.readAll();
+        file.close();
         QJsonDocument doc = QJsonDocument::fromJson(data);
         if (!doc.isObject()) continue;
 

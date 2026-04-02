@@ -59,7 +59,7 @@ QString InfluxQueryService::formatTime(const QDateTime &dt) const
     if (!dt.isValid()) {
         return QString();
     }
-    return dt.toUTC().toString("yyyy-MM-ddThh:mm:ssZ");
+    return dt.toUTC().toString("yyyy-MM-ddTHH:mm:ssZ");
 }
 
 // InfluxDB returns nanosecond timestamps like 2026-03-25T12:34:56.123456789Z
@@ -81,7 +81,7 @@ static QDateTime parseInfluxTime(const QString &timeStr)
         if (zPos < 0) zPos = s.length();
         // Keep only 3 decimal digits
         QString truncated = s.left(dotPos + 1) + s.mid(dotPos + 1, 3).leftJustified(3, '0') + "Z";
-        t = QDateTime::fromString(truncated, "yyyy-MM-ddThh:mm:ss.zzzZ");
+        t = QDateTime::fromString(truncated, "yyyy-MM-ddTHH:mm:ss.zzzZ");
         if (t.isValid()) return t;
     }
 
@@ -295,6 +295,7 @@ QString InfluxQueryService::buildFluxQuery(const QString &tagId,
             "  |> filter(fn: (r) => r.tag_id == \"%4\")\n"
             "  |> filter(fn: (r) => r._field == \"position_x_m\" or r._field == \"position_y_m\" or r._field == \"position_z_m\")\n"
             "  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n"
+            "  |> group()\n"
             "  |> sort(columns: [\"_time\"])"
         ).arg(_config.bucket()).arg(rangeClause).arg(_config.measurement()).arg(tagId);
     }
@@ -305,6 +306,7 @@ QString InfluxQueryService::buildFluxQuery(const QString &tagId,
         "  |> filter(fn: (r) => r._measurement == \"%3\")\n"
         "  |> filter(fn: (r) => r.tag_id == \"%4\")%5\n"
         "  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n"
+        "  |> group()\n"
         "  |> sort(columns: [\"_time\"])"
     ).arg(_config.bucket()).arg(rangeClause).arg(_config.measurement()).arg(tagId).arg(fieldFilter);
 }
