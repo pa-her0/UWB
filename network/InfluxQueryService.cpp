@@ -86,7 +86,7 @@ static QDateTime parseInfluxTime(const QString &timeStr)
     }
 
     // Last resort: strip sub-seconds entirely
-    t = QDateTime::fromString(s.left(19), "yyyy-MM-ddThh:mm:ss");
+    t = QDateTime::fromString(s.left(19), "yyyy-MM-ddTHH:mm:ss");
     t.setTimeSpec(Qt::UTC);
     return t;
 }

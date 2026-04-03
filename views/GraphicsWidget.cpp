@@ -280,7 +280,7 @@ void GraphicsWidget::onReady()
 
 GraphicsWidget::~GraphicsWidget()
 {
-    delete _scene;
+    // _scene has parent (this), Qt will auto-delete it
     delete ui;
 }
 

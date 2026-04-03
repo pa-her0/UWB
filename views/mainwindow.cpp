@@ -422,8 +422,10 @@ void MainWindow::saveConfigFile(QString filename, QString cfg)
 
     //file.close(); //close the file and overwrite with new info
 
-    file.open(QIODevice::WriteOnly | QIODevice::Text);
-
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "Error: Cannot write config file" << file.errorString();
+        return;
+    }
 
     QTextStream ts( &file );
     ts << doc.toString();

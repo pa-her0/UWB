@@ -1853,7 +1853,7 @@ void ViewSettingsWidget::onCadToPngClicked()
 
     QProcess *proc = new QProcess(this);
     connect(proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
-            this, [=](int exitCode, QProcess::ExitStatus) {
+            this, [this, proc, pngPath](int exitCode, QProcess::ExitStatus) {
         ui->cadToPngBtn->setEnabled(true);
         ui->cadToPngBtn->setText("CAD(DXF) → PNG 转换...");
 
