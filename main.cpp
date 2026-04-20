@@ -17,7 +17,8 @@
 #include <QStyleFactory>
 #include <QFile>
 #include <QDesktopWidget>
-
+#include <QCommandLineParser>
+#include <QDebug>
 
 /**
 * @brief this is the application main entry point
@@ -30,6 +31,38 @@ int main(int argc, char *argv[])
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
 
     RTLSDisplayApplication app(argc, argv);
+
+    // Parse command line arguments for WebSocket configuration
+    QCommandLineParser parser;
+    parser.setApplicationDescription("HR-RTLS PC Application with WebSocket data forwarding");
+    parser.addHelpOption();
+
+    QCommandLineOption wsUrlOption(QStringList() << "w" << "ws-url",
+        "WebSocket server URL (e.g., ws://192.168.1.100:8080/rtls)",
+        "url");
+    parser.addOption(wsUrlOption);
+
+    QCommandLineOption wsAutoConnectOption(QStringList() << "a" << "ws-auto",
+        "Auto-connect to WebSocket on startup");
+    parser.addOption(wsAutoConnectOption);
+
+    parser.process(app);
+
+    // Check environment variable as fallback
+    QString wsUrl;
+    if (parser.isSet(wsUrlOption)) {
+        wsUrl = parser.value(wsUrlOption);
+    } else {
+        wsUrl = QString::fromLocal8Bit(qgetenv("RTLS_WS_URL"));
+    }
+
+    if (!wsUrl.isEmpty()) {
+        qDebug() << "[Main] WebSocket URL from command line/env:" << wsUrl;
+        app.webSocketClient()->connectToServer(wsUrl);
+    } else if (parser.isSet(wsAutoConnectOption)) {
+        qDebug() << "[Main] --ws-auto set but no URL provided, using default ws://localhost:8080/rtls";
+        app.webSocketClient()->connectToServer("ws://localhost:8080/rtls");
+    }
 
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
     QApplication::setStyle(QStyleFactory::create("fusion"));

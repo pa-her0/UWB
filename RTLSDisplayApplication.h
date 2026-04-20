@@ -27,6 +27,7 @@ class RTLSClient;
 class ViewSettingsWidget;
 class UwbDataVizWidget;
 class InfluxWriteService;
+class WebSocketClient;
 /**
  * The RTLSDisplayApplication class is a singleton class which handles the application.
  *
@@ -59,6 +60,7 @@ public:
     static GraphicsView *graphicsView();
     static UwbDataVizWidget *uwbDataVizWidget();
     static InfluxWriteService *influxWriteService();
+    static WebSocketClient *webSocketClient();
 
     /**
      * Call \a member of \a receiver once initialization is complete.
@@ -90,6 +92,7 @@ private:
     bool _ready;
 
     InfluxWriteService *_influxWriteService;
+    WebSocketClient *_webSocketClient;
 };
 
 #endif // RTLSDISPLAYAPPLICATION_H

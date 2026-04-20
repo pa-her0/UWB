@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UWB RTLS 实时监控平台</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 20px;
+        }
+        h1 { text-align: center; margin-bottom: 20px; color: #38bdf8; }
+        .status {
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .status.connected { background: #065f46; color: #6ee7b7; }
+        .status.disconnected { background: #7f1d1d; color: #fca5a5; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #334155;
+        }
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #94a3b8;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+        }
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #334155;
+        }
+        .data-row:last-child { border-bottom: none; }
+        .label { color: #94a3b8; }
+        .value { font-family: 'Courier New', monospace; font-weight: bold; color: #38bdf8; }
+        .value.warning { color: #fbbf24; }
+        .value.danger { color: #f87171; }
+        canvas {
+            width: 100%;
+            height: 300px;
+            background: #0f172a;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+        .tag-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .tag-btn {
+            background: #334155;
+            border: none;
+            color: #e2e8f0;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .tag-btn:hover { background: #475569; }
+        .tag-btn.active { background: #0ea5e9; }
+        .log {
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 12px;
+            font-family: monospace;
+            background: #0f172a;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .log-entry { margin-bottom: 4px; }
+        .timestamp { color: #64748b; }
+    </style>
+</head>
+<body>
+    <h1>UWB RTLS 实时定位监控平台</h1>
+    <div id="status" class="status disconnected">WebSocket 未连接</div>
+
+    <div class="tag-selector" id="tagSelector"></div>
+
+    <div class="grid">
+        <div class="card">
+            <h2>位置信息 (Position)</h2>
+            <div class="data-row"><span class="label">Tag ID</span><span class="value" id="tagId">-</span></div>
+            <div class="data-row"><span class="label">X (m)</span><span class="value" id="posX">-</span></div>
+            <div class="data-row"><span class="label">Y (m)</span><span class="value" id="posY">-</span></div>
+            <div class="data-row"><span class="label">Z (m)</span><span class="value" id="posZ">-</span></div>
+            <div class="data-row"><span class="label">时间戳</span><span class="value" id="timestamp" style="font-size:12px">-</span></div>
+        </div>
+
+        <div class="card">
+            <h2>滤波后位置 (Filtered)</h2>
+            <div class="data-row"><span class="label">Filtered X (m)</span><span class="value" id="fX">-</span></div>
+            <div class="data-row"><span class="label">Filtered Y (m)</span><span class="value" id="fY">-</span></div>
+            <div class="data-row"><span class="label">Filtered Z (m)</span><span class="value" id="fZ">-</span></div>
+        </div>
+
+        <div class="card">
+            <h2>测距信息 (Ranges)</h2>
+            <div id="ranges"></div>
+        </div>
+
+        <div class="card">
+            <h2>IMU 数据</h2>
+            <div class="data-row"><span class="label">姿态 (Pitch/Roll/Yaw)</span></div>
+            <div class="data-row"><span class="label">Pitch</span><span class="value" id="pitch">-</span></div>
+            <div class="data-row"><span class="label">Roll</span><span class="value" id="roll">-</span></div>
+            <div class="data-row"><span class="label">Yaw</span><span class="value" id="yaw">-</span></div>
+            <div class="data-row"><span class="label">加速度 (x/y/z)</span></div>
+            <div class="data-row"><span class="label">Accel</span><span class="value" id="accel" style="font-size:12px">-</span></div>
+            <div class="data-row"><span class="label">陀螺仪 (x/y/z)</span></div>
+            <div class="data-row"><span class="label">Gyro</span><span class="value" id="gyro" style="font-size:12px">-</span></div>
+        </div>
+
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>2D 轨迹视图</h2>
+            <canvas id="trajectoryCanvas" width="800" height="400"></canvas>
+        </div>
+
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>实时日志</h2>
+            <div class="log" id="log"></div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== 配置 ====================
+        const WS_URL = 'ws://' + window.location.host + '/rtls';
+        // 如果后端和前端不在同一台机器，请改成实际的IP：
+        // const WS_URL = 'ws://192.168.1.100:8080/rtls';
+
+        // ==================== 状态 ====================
+        let ws = null;
+        let currentTagId = null;
+        let tagsData = {};
+        let trajectory = []; // 轨迹点数组 {x, y}
+
+        // ==================== WebSocket ====================
+        function connect() {
+            ws = new WebSocket(WS_URL);
+
+            ws.onopen = () => {
+                updateStatus(true);
+                addLog('WebSocket 已连接');
+            };
+
+            ws.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    handleData(data);
+                } catch (e) {
+                    console.error('Parse error:', e);
+                }
+            };
+
+            ws.onclose = () => {
+                updateStatus(false);
+                addLog('WebSocket 已断开，3秒后重连...');
+                setTimeout(connect, 3000);
+            };
+
+            ws.onerror = (err) => {
+                console.error('WebSocket error:', err);
+                addLog('WebSocket 错误');
+            };
+        }
+
+        function updateStatus(connected) {
+            const el = document.getElementById('status');
+            if (connected) {
+                el.textContent = 'WebSocket 已连接 - 正在接收数据';
+                el.className = 'status connected';
+            } else {
+                el.textContent = 'WebSocket 未连接';
+                el.className = 'status disconnected';
+            }
+        }
+
+        // ==================== 数据处理 ====================
+        function handleData(data) {
+            if (data.type !== 'tag_position') return;
+
+            const tagId = data.tagId;
+            tagsData[tagId] = data;
+
+            // 更新 Tag 选择器
+            updateTagSelector();
+
+            // 如果是当前选中的 tag，更新界面
+            if (currentTagId === null) currentTagId = tagId;
+            if (currentTagId == tagId) {
+                updateUI(data);
+                updateTrajectory(data);
+            }
+        }
+
+        function updateTagSelector() {
+            const container = document.getElementById('tagSelector');
+            const ids = Object.keys(tagsData).sort((a, b) => a - b);
+            if (ids.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+
+            let html = '<span style="color:#94a3b8;margin-right:10px;">选择 Tag:</span>';
+            ids.forEach(id => {
+                const active = (id == currentTagId) ? 'active' : '';
+                html += `<button class="tag-btn ${active}" onclick="selectTag(${id})">Tag ${id}</button>`;
+            });
+            container.innerHTML = html;
+        }
+
+        window.selectTag = function(tagId) {
+            currentTagId = tagId;
+            trajectory = []; // 切换tag时清空轨迹
+            updateTagSelector();
+            if (tagsData[tagId]) {
+                updateUI(tagsData[tagId]);
+            }
+        };
+
+        function updateUI(data) {
+            document.getElementById('tagId').textContent = data.tagId;
+            document.getElementById('timestamp').textContent = data.timestamp || '-';
+
+            const p = data.position || {};
+            document.getElementById('posX').textContent = fmt(p.x);
+            document.getElementById('posY').textContent = fmt(p.y);
+            document.getElementById('posZ').textContent = fmt(p.z);
+
+            const f = data.filteredPosition || {};
+            document.getElementById('fX').textContent = fmt(f.x);
+            document.getElementById('fY').textContent = fmt(f.y);
+            document.getElementById('fZ').textContent = fmt(f.z);
+
+            // Ranges
+            const ranges = data.ranges || {};
+            let rangesHtml = '';
+            for (let i = 0; i < 8; i++) {
+                const r = ranges['range' + i];
+                const val = (r !== undefined && r > 0) ? fmt(r / 1000) + ' m' : '-';
+                rangesHtml += `<div class="data-row"><span class="label">Anchor ${i}</span><span class="value">${val}</span></div>`;
+            }
+            document.getElementById('ranges').innerHTML = rangesHtml;
+
+            // IMU
+            const imu = data.imu || {};
+            const att = imu.attitude || {};
+            document.getElementById('pitch').textContent = fmt(att.pitch);
+            document.getElementById('roll').textContent = fmt(att.roll);
+            document.getElementById('yaw').textContent = fmt(att.yaw);
+
+            const acc = imu.accel || {};
+            document.getElementById('accel').textContent = `${fmt(acc.x)}, ${fmt(acc.y)}, ${fmt(acc.z)}`;
+
+            const gyr = imu.gyro || {};
+            document.getElementById('gyro').textContent = `${fmt(gyr.x)}, ${fmt(gyr.y)}, ${fmt(gyr.z)}`;
+        }
+
+        // ==================== 轨迹绘制 ====================
+        function updateTrajectory(data) {
+            const p = data.filteredPosition && data.filteredPosition.x !== 0
+                ? data.filteredPosition
+                : data.position;
+            if (!p) return;
+
+            trajectory.push({ x: p.x, y: p.y });
+            if (trajectory.length > 500) trajectory.shift();
+
+            drawTrajectory();
+        }
+
+        function drawTrajectory() {
+            const canvas = document.getElementById('trajectoryCanvas');
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width;
+            const h = canvas.height;
+
+            ctx.clearRect(0, 0, w, h);
+
+            if (trajectory.length < 2) return;
+
+            // 计算边界
+            let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+            trajectory.forEach(pt => {
+                minX = Math.min(minX, pt.x);
+                maxX = Math.max(maxX, pt.x);
+                minY = Math.min(minY, pt.y);
+                maxY = Math.max(maxY, pt.y);
+            });
+
+            const margin = 50;
+            const scaleX = (w - margin * 2) / (maxX - minX || 1);
+            const scaleY = (h - margin * 2) / (maxY - minY || 1);
+            const scale = Math.min(scaleX, scaleY);
+
+            const cx = (minX + maxX) / 2;
+            const cy = (minY + maxY) / 2;
+
+            function tx(x) { return w / 2 + (x - cx) * scale; }
+            function ty(y) { return h / 2 - (y - cy) * scale; } // Y轴翻转
+
+            // 绘制网格
+            ctx.strokeStyle = '#1e293b';
+            ctx.lineWidth = 1;
+            for (let i = 0; i <= 10; i++) {
+                const x = margin + i * (w - margin * 2) / 10;
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+                const y = margin + i * (h - margin * 2) / 10;
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+            }
+
+            // 绘制轨迹
+            ctx.strokeStyle = '#0ea5e9';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            trajectory.forEach((pt, i) => {
+                const px = tx(pt.x);
+                const py = ty(pt.y);
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            });
+            ctx.stroke();
+
+            // 绘制当前点
+            const last = trajectory[trajectory.length - 1];
+            const px = tx(last.x);
+            const py = ty(last.y);
+            ctx.fillStyle = '#f87171';
+            ctx.beginPath();
+            ctx.arc(px, py, 6, 0, Math.PI * 2);
+            ctx.fill();
+
+            // 坐标标签
+            ctx.fillStyle = '#64748b';
+            ctx.font = '12px monospace';
+            ctx.fillText(`X: ${fmt(last.x)} m`, 10, 20);
+            ctx.fillText(`Y: ${fmt(last.y)} m`, 10, 40);
+        }
+
+        // ==================== 日志 ====================
+        function addLog(msg) {
+            const log = document.getElementById('log');
+            const time = new Date().toLocaleTimeString();
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `<span class="timestamp">[${time}]</span> ${msg}`;
+            log.appendChild(entry);
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function fmt(v) {
+            if (v === undefined || v === null) return '-';
+            return Number(v).toFixed(3);
+        }
+
+        // ==================== 启动 ====================
+        connect();
+    </script>
+</body>
+</html>

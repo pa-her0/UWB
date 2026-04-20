@@ -17,6 +17,7 @@
 #include "trilateration.h"
 #include "InfluxWriteService.h"
 #include "UwbDataVizWidget.h"
+#include "WebSocketClient.h"
 
 #include <QTextStream>
 #include <QDateTime>
@@ -1828,6 +1829,29 @@ void RTLSClient::trilaterateTag(int tid, int seq, int idx)
             if(mSocket != NULL)
             {
                 delete mSocket;
+            }
+        }
+
+        // WebSocket: send data to remote web server
+        {
+            WebSocketClient *ws = RTLSDisplayApplication::webSocketClient();
+            if (ws) {
+                int ranges[8];
+                for (int i = 0; i < 8; ++i) {
+                    ranges[i] = rp.rangeValue[lastSeq][i];
+                }
+                double rxPowerD = (rx_power != 800) ? -((double)rx_power / 100.0) : 800.0;
+                ws->sendTagPosition(
+                    tid,
+                    report.x, report.y, report.z,
+                    rp.fx, rp.fy, rp.fz,
+                    ranges,
+                    pitch, roll, yaw,
+                    accel_x, accel_y, accel_z,
+                    gyro_x, gyro_y, gyro_z,
+                    mag_x, mag_y, mag_z,
+                    alarm, rxPowerD
+                );
             }
         }
 

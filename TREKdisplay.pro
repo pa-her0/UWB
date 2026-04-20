@@ -9,6 +9,7 @@ QT       += core gui network xml serialport quickwidgets
 QT       += network
 QT       += core gui charts
 QT       += datavisualization
+QT       += websockets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++11
 TARGET = HR-RTLS_PC
@@ -46,6 +47,7 @@ SOURCES += main.cpp\
     network/InfluxQueryService.cpp \
     network/InfluxWriteService.cpp \
     network/DockerManager.cpp \
+    network/WebSocketClient.cpp \
     tools/trilateration.cpp \
     views/UwbDataVizWidget.cpp \
     views/UwbTrajectoryView.cpp
@@ -73,6 +75,7 @@ HEADERS  += \
     network/InfluxQueryService.h \
     network/InfluxWriteService.h \
     network/DockerManager.h \
+    network/WebSocketClient.h \
     tools/trilateration.h \
     views/UwbDataVizWidget.h \
     views/UwbTrajectoryView.h

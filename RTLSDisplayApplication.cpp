@@ -19,6 +19,7 @@
 #include "GraphicsWidget.h"
 #include "UwbDataVizWidget.h"
 #include "InfluxWriteService.h"
+#include "WebSocketClient.h"
 
 #include <QMetaProperty>
 #include <QDesktopWidget>
@@ -56,6 +57,9 @@ RTLSDisplayApplication::RTLSDisplayApplication(int &argc, char **argv) : QApplic
     // Initialize InfluxDB write service
     _influxWriteService = nullptr; // Will be initialized after UwbDataVizWidget is ready
 
+    // Initialize WebSocket client (connection URL is configured via command line or UI)
+    _webSocketClient = new WebSocketClient(this);
+
     _ready = true;
 
     //Connect the various signals and corresponding slots
@@ -91,6 +95,8 @@ RTLSDisplayApplication::~RTLSDisplayApplication()
     delete _client;
 
     delete _serialConnection;
+
+    delete _webSocketClient;
 
 	delete _viewSettings;
 }
@@ -146,6 +152,11 @@ InfluxWriteService *RTLSDisplayApplication::influxWriteService()
         app->_influxWriteService = app->uwbDataVizWidget()->writeService();
     }
     return app->_influxWriteService;
+}
+
+WebSocketClient *RTLSDisplayApplication::webSocketClient()
+{
+    return instance()->_webSocketClient;
 }
 
 void RTLSDisplayApplication::connectReady(QObject *receiver, const char *member, Qt::ConnectionType type)
