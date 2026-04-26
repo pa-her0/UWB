@@ -1,424 +1,5123 @@
-
-C:/Qt/Qt5.14.2/Tools/mingw730_32/bin/mingw32-make -f Makefile.Debug
-mingw32-make[1]: Entering directory 'C:/Users/Administrator/Desktop/build-TREKdisplay-Desktop_Qt_5_14_2_MinGW_32_bit-Debug'
-g++ -c -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -fexceptions -mthreads -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG -DQT_QUICKWIDGETS_LIB -DQT_QUICK_LIB -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_DATAVISUALIZATION_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_WEBSOCKETS_LIB -DQT_NETWORK_LIB -DQT_XML_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN -IC:\Users\Administrator\Desktop\UWB -I. -IC:\Users\Administrator\Desktop\UWB\models -IC:\Users\Administrator\Desktop\UWB\network -IC:\Users\Administrator\Desktop\UWB\views -IC:\Users\Administrator\Desktop\UWB\util -IC:\Users\Administrator\Desktop\UWB\tools -IC:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include -IC:\Users\Administrator\Desktop\UWB\eigen -IC:\Users\Administrator\Desktop\UWB\gsl\include -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQuickWidgets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQuick -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtCharts -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWidgets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtDataVisualization -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtGui -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtANGLE -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQmlModels -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQml -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWebSockets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtNetwork -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtXml -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtSerialPort -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtCore -Idebug -I. -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\win32-g++  -o debug\main.o C:\Users\Administrator\Desktop\UWB\main.cpp
-g++ -c -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -fexceptions -mthreads -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG -DQT_QUICKWIDGETS_LIB -DQT_QUICK_LIB -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_DATAVISUALIZATION_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_WEBSOCKETS_LIB -DQT_NETWORK_LIB -DQT_XML_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN -IC:\Users\Administrator\Desktop\UWB -I. -IC:\Users\Administrator\Desktop\UWB\models -IC:\Users\Administrator\Desktop\UWB\network -IC:\Users\Administrator\Desktop\UWB\views -IC:\Users\Administrator\Desktop\UWB\util -IC:\Users\Administrator\Desktop\UWB\tools -IC:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include -IC:\Users\Administrator\Desktop\UWB\eigen -IC:\Users\Administrator\Desktop\UWB\gsl\include -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQuickWidgets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQuick -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtCharts -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWidgets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtDataVisualization -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtGui -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtANGLE -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQmlModels -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQml -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWebSockets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtNetwork -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtXml -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtSerialPort -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtCore -Idebug -I. -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\win32-g++  -o debug\RTLSClient.o C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp
-g++ -c -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -fexceptions -mthreads -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG -DQT_QUICKWIDGETS_LIB -DQT_QUICK_LIB -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_DATAVISUALIZATION_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_WEBSOCKETS_LIB -DQT_NETWORK_LIB -DQT_XML_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN -IC:\Users\Administrator\Desktop\UWB -I. -IC:\Users\Administrator\Desktop\UWB\models -IC:\Users\Administrator\Desktop\UWB\network -IC:\Users\Administrator\Desktop\UWB\views -IC:\Users\Administrator\Desktop\UWB\util -IC:\Users\Administrator\Desktop\UWB\tools -IC:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include -IC:\Users\Administrator\Desktop\UWB\eigen -IC:\Users\Administrator\Desktop\UWB\gsl\include -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQuickWidgets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQuick -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtCharts -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWidgets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtDataVisualization -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtGui -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtANGLE -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQmlModels -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQml -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWebSockets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtNetwork -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtXml -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtSerialPort -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtCore -Idebug -I. -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\win32-g++  -o debug\GraphicsView.o C:\Users\Administrator\Desktop\UWB\views\GraphicsView.cpp
-g++ -c -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -fexceptions -mthreads -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG -DQT_QUICKWIDGETS_LIB -DQT_QUICK_LIB -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_DATAVISUALIZATION_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_WEBSOCKETS_LIB -DQT_NETWORK_LIB -DQT_XML_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN -IC:\Users\Administrator\Desktop\UWB -I. -IC:\Users\Administrator\Desktop\UWB\models -IC:\Users\Administrator\Desktop\UWB\network -IC:\Users\Administrator\Desktop\UWB\views -IC:\Users\Administrator\Desktop\UWB\util -IC:\Users\Administrator\Desktop\UWB\tools -IC:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include -IC:\Users\Administrator\Desktop\UWB\eigen -IC:\Users\Administrator\Desktop\UWB\gsl\include -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQuickWidgets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQuick -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtCharts -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWidgets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtDataVisualization -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtGui -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtANGLE -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQmlModels -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQml -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWebSockets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtNetwork -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtXml -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtSerialPort -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtCore -Idebug -I. -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\win32-g++  -o debug\GraphicsWidget.o C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:213:135: warning: backslash and newline separated by space
-                        <<tr("range3(m),")<<tr("range4(m),")<<tr("range5(m),")<<tr("range6(m),")<<tr("range7(m),")<<tr("rx_pwr(dBm),") \
-                                                                                                                                        
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:287:135: warning: backslash and newline separated by space
-                        <<tr("range3(m),")<<tr("range4(m),")<<tr("range5(m),")<<tr("range6(m),")<<tr("range7(m),")<<tr("rx_pwr(dBm),") \
-                                                                                                                                        
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:773:1: warning: multi-line comment [-Wcomment]
- //        qInfo()<<"revLen: "<<revLen<<" type: "<<type<<", alarm: "<<alarm<<", range[0]: "<<range[0]<<", range[1]: "<<range[1]<<", range[2]: "<<range[2]<<", range[3]: "<<range[3]<<", range[4]: "<<range[4] \
- ^
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:1073:1: warning: multi-line comment [-Wcomment]
- //        qInfo()<<" type: "<<type<<", alarm: "<<alarm<<", range[0]: "<<range[0]<<", range[1]: "<<range[1]<<", range[2]: "<<range[2]<<", range[3]: "<<range[3]<<", range[4]: "<<range[4] \
- ^
-g++ -c -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -fexceptions -mthreads -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG -DQT_QUICKWIDGETS_LIB -DQT_QUICK_LIB -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_DATAVISUALIZATION_LIB -DQT_GUI_LIB -DQT_QMLMODELS_LIB -DQT_QML_LIB -DQT_WEBSOCKETS_LIB -DQT_NETWORK_LIB -DQT_XML_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN -IC:\Users\Administrator\Desktop\UWB -I. -IC:\Users\Administrator\Desktop\UWB\models -IC:\Users\Administrator\Desktop\UWB\network -IC:\Users\Administrator\Desktop\UWB\views -IC:\Users\Administrator\Desktop\UWB\util -IC:\Users\Administrator\Desktop\UWB\tools -IC:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include -IC:\Users\Administrator\Desktop\UWB\eigen -IC:\Users\Administrator\Desktop\UWB\gsl\include -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQuickWidgets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQuick -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtCharts -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWidgets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtDataVisualization -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtGui -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtANGLE -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQmlModels -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtQml -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWebSockets -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtNetwork -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtXml -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtSerialPort -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtCore -Idebug -I. -IC:\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\win32-g++  -o debug\ViewSettingsWidget.o C:\Users\Administrator\Desktop\UWB\views\ViewSettingsWidget.cpp
-In file included from C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo:540:0,
-                 from C:\Users\Administrator\Desktop\UWB\network\RTLSClient.h:29,
-                 from C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:13:
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/op_find_meat.hpp: In static member function 'static arma::uword arma::op_find::helper(arma::Mat<unsigned int>&, const arma::mtOp<unsigned int, T1, op_type>&, typename arma::arma_op_rel_only<op_type>::result, typename arma::arma_not_cx<typename T1::elem_type>::result)':
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/op_find_meat.hpp:119:7: warning: this 'else' clause does not guard... [-Wmisleading-indentation]
-       else not_zero_i = false;
-       ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/op_find_meat.hpp:121:12: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'else'
-            if(is_same_type<op_type, op_rel_lt_pre   >::yes)  { not_zero_j = (val <  tpj); }
-            ^~
-In file included from C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo:540:0,
-                 from C:\Users\Administrator\Desktop\UWB\network/RTLSClient.h:29,
-                 from C:\Users\Administrator\Desktop\UWB\views/ViewSettingsWidget.h:37,
-                 from C:\Users\Administrator\Desktop\UWB\views/mainwindow.h:23,
-                 from C:\Users\Administrator\Desktop\UWB\main.cpp:14:
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/op_find_meat.hpp: In static member function 'static arma::uword arma::op_find::helper(arma::Mat<unsigned int>&, const arma::mtOp<unsigned int, T1, op_type>&, typename arma::arma_op_rel_only<op_type>::result, typename arma::arma_not_cx<typename T1::elem_type>::result)':
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/op_find_meat.hpp:119:7: warning: this 'else' clause does not guard... [-Wmisleading-indentation]
-       else not_zero_i = false;
-       ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/op_find_meat.hpp:121:12: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'else'
-            if(is_same_type<op_type, op_rel_lt_pre   >::yes)  { not_zero_j = (val <  tpj); }
-            ^~
-C:\Users\Administrator\Desktop\UWB\main.cpp: In function 'int qMain(int, char**)':
-C:\Users\Administrator\Desktop\UWB\main.cpp:61:30: error: invalid use of incomplete type 'class WebSocketClient'
-         app.webSocketClient()->connectToServer(wsUrl);
-                              ^~
-In file included from C:\Users\Administrator\Desktop\UWB\main.cpp:13:0:
-C:\Users\Administrator\Desktop\UWB\RTLSDisplayApplication.h:30:7: note: forward declaration of 'class WebSocketClient'
- class WebSocketClient;
-       ^~~~~~~~~~~~~~~
-C:\Users\Administrator\Desktop\UWB\main.cpp:61:32: error: invalid use of incomplete type 'class WebSocketClient'
-         app.webSocketClient()->connectToServer(wsUrl);
-                                ^~~~~~~~~~~~~~~
-In file included from C:\Users\Administrator\Desktop\UWB\main.cpp:13:0:
-C:\Users\Administrator\Desktop\UWB\RTLSDisplayApplication.h:30:7: note: forward declaration of 'class WebSocketClient'
- class WebSocketClient;
-       ^~~~~~~~~~~~~~~
-C:\Users\Administrator\Desktop\UWB\main.cpp:64:30: error: invalid use of incomplete type 'class WebSocketClient'
-         app.webSocketClient()->connectToServer("ws://localhost:8080/rtls");
-                              ^~
-In file included from C:\Users\Administrator\Desktop\UWB\main.cpp:13:0:
-C:\Users\Administrator\Desktop\UWB\RTLSDisplayApplication.h:30:7: note: forward declaration of 'class WebSocketClient'
- class WebSocketClient;
-       ^~~~~~~~~~~~~~~
-C:\Users\Administrator\Desktop\UWB\main.cpp:64:32: error: invalid use of incomplete type 'class WebSocketClient'
-         app.webSocketClient()->connectToServer("ws://localhost:8080/rtls");
-                                ^~~~~~~~~~~~~~~
-In file included from C:\Users\Administrator\Desktop\UWB\main.cpp:13:0:
-C:\Users\Administrator\Desktop\UWB\RTLSDisplayApplication.h:30:7: note: forward declaration of 'class WebSocketClient'
- class WebSocketClient;
-       ^~~~~~~~~~~~~~~
-In file included from C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo:540:0,
-                 from C:\Users\Administrator\Desktop\UWB\network/RTLSClient.h:29,
-                 from C:\Users\Administrator\Desktop\UWB\views\ViewSettingsWidget.h:37,
-                 from C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.h:21,
-                 from C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp:13:
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/op_find_meat.hpp: In static member function 'static arma::uword arma::op_find::helper(arma::Mat<unsigned int>&, const arma::mtOp<unsigned int, T1, op_type>&, typename arma::arma_op_rel_only<op_type>::result, typename arma::arma_not_cx<typename T1::elem_type>::result)':
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/op_find_meat.hpp:119:7: warning: this 'else' clause does not guard... [-Wmisleading-indentation]
-       else not_zero_i = false;
-       ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/op_find_meat.hpp:121:12: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'else'
-            if(is_same_type<op_type, op_rel_lt_pre   >::yes)  { not_zero_j = (val <  tpj); }
-            ^~
-C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp: In member function 'void GraphicsWidget::tagPos(quint64, double, double, double)':
-C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp:1015:49: warning: 'QColor QColor::dark(int) const' is deprecated: Use QColor::darker() instead [-Wdeprecated-declarations]
-                 tag_pt->setBrush(b.color().dark());
-                                                 ^
-In file included from C:\Qt\Qt5.14.2\5.14.2\mingw73_32\include/QtGui/qpixmap.h:45:0,
-                 from C:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWidgets/qgraphicsitem.h:49,
-                 from C:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWidgets/QGraphicsRectItem:1,
-                 from C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.h:16,
-                 from C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp:13:
-C:\Qt\Qt5.14.2\5.14.2\mingw73_32\include/QtGui/qcolor.h:235:30: note: declared here
-     Q_REQUIRED_RESULT QColor dark(int f = 200) const noexcept;
-                              ^~~~
-C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp:1017:56: warning: 'QColor QColor::dark(int) const' is deprecated: Use QColor::darker() instead [-Wdeprecated-declarations]
-                 tag->tagLabel->setBrush(b.color().dark());
-                                                        ^
-In file included from C:\Qt\Qt5.14.2\5.14.2\mingw73_32\include/QtGui/qpixmap.h:45:0,
-                 from C:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWidgets/qgraphicsitem.h:49,
-                 from C:\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWidgets/QGraphicsRectItem:1,
-                 from C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.h:16,
-                 from C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp:13:
-C:\Qt\Qt5.14.2\5.14.2\mingw73_32\include/QtGui/qcolor.h:235:30: note: declared here
-     Q_REQUIRED_RESULT QColor dark(int f = 200) const noexcept;
-                              ^~~~
-C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp: In member function 'void GraphicsWidget::tagStats(quint64, double, double, double, double)':
-C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp:1066:73: warning: unused parameter 'z' [-Wunused-parameter]
- void GraphicsWidget::tagStats(quint64 tagId, double x, double y, double z, double r95)
-                                                                         ^
-C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp: In member function 'void GraphicsWidget::ancRanges(int, int, int)':
-C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp:1883:15: warning: unused variable 'rA02' [-Wunused-variable]
-         qreal rA02 = ((double)a02)/1000;
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp:1884:15: warning: unused variable 'rA12' [-Wunused-variable]
-         qreal rA12 = ((double)a12)/1000;
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp: In member function 'void GraphicsWidget::canvasShow(bool)':
-C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp:2194:11: warning: variable 'posMin' set but not used [-Wunused-but-set-variable]
-     vec3d posMin = getMinPos(m_posList2);
-           ^~~~~~
-C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.cpp:2195:11: warning: variable 'posMax' set but not used [-Wunused-but-set-variable]
-     vec3d posMax = getMaxPos(m_posList2);
-           ^~~~~~
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp: In member function 'void RTLSClient::onConnected(QString, QString)':
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:117:38: warning: unused parameter 'ver' [-Wunused-parameter]
- void RTLSClient::onConnected(QString ver, QString conf)
-                                      ^~~
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:117:51: warning: unused parameter 'conf' [-Wunused-parameter]
- void RTLSClient::onConnected(QString ver, QString conf)
-                                                   ^~~~
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp: In member function 'void RTLSClient::CheckCommFrame(const char*, int)':
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:754:17: warning: unused variable 'n' [-Wunused-variable]
-             int n = sscanf(pbuf,"m%c %x %x %x %x %x %x %x %x %x %x %x %x %c%d:%d %x", &type, &alarm, &range[0], &range[1], &range[2], &range[3], &range[4], &range[5], &range[6], &range[7], &lnum, &seq, &rangetime, &c, &tid, &aid, &rx_power);
-                 ^
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:758:17: warning: unused variable 'n' [-Wunused-variable]
-             int n = sscanf(pbuf,"m%c %x %x %x %x %x %x %x %x %c%d:%d %x", &type, &alarm, &range[0], &range[1], &range[2], &range[3], &lnum, &seq, &rangetime, &c, &tid, &aid, &rx_power);
-                 ^
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:762:17: warning: unused variable 'n' [-Wunused-variable]
-             int n = sscanf(pbuf,"m%c %x %x %x %x %x %x %x %x %c%d:%d", &type, &alarm, &range[0], &range[1], &range[2], &range[3], &lnum, &seq, &rangetime, &c, &tid, &aid);
-                 ^
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:766:17: warning: unused variable 'n' [-Wunused-variable]
-             int n = sscanf(pbuf,"m%c %x %x %x %x %x %x %x %x %x %x %x %x %c%d:%d", &type, &alarm, &range[0], &range[1], &range[2], &range[3], &range[4], &range[5], &range[6], &range[7], &lnum, &seq, &rangetime, &c, &tid, &aid);
-                 ^
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp: In member function 'int RTLSClient::processTagRangeReports(int, int*, int, int, int, int, int)':
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:1469:65: warning: unused parameter 'lnum' [-Wunused-parameter]
- int RTLSClient::processTagRangeReports(int tid, int *range, int lnum, int seq, int mask, int rx_power, int alarm)
-                                                                 ^~~~
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp: In member function 'void RTLSClient::trilaterateTag(int, int, int)':
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:1843:36: error: 'rx_power' was not declared in this scope
-                 double rxPowerD = (rx_power != 800) ? -((double)rx_power / 100.0) : 800.0;
-                                    ^~~~~~~~
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:1843:36: note: suggested alternative: 'rxPowerD'
-                 double rxPowerD = (rx_power != 800) ? -((double)rx_power / 100.0) : 800.0;
-                                    ^~~~~~~~
-                                    rxPowerD
-C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:1853:21: error: 'alarm' was not declared in this scope
-                     alarm, rxPowerD
-                     ^~~~~
-mingw32-make[1]: *** [Makefile.Debug:9995: debug/main.o] Error 1
-mingw32-make[1]: *** Waiting for unfinished jobs....
-In file included from C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo:476:0,
-                 from C:\Users\Administrator\Desktop\UWB\network\RTLSClient.h:29,
-                 from C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:13:
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp: In static member function 'static void arma::arrayops::copy_small(eT*, const eT*, arma::uword) [with eT = double]':
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:40:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 16:  dest[15] = src[15];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:41:5: note: here
-     case 15:  dest[14] = src[14];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:41:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 15:  dest[14] = src[14];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:42:5: note: here
-     case 14:  dest[13] = src[13];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:42:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 14:  dest[13] = src[13];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:43:5: note: here
-     case 13:  dest[12] = src[12];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:43:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 13:  dest[12] = src[12];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:44:5: note: here
-     case 12:  dest[11] = src[11];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:44:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 12:  dest[11] = src[11];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:45:5: note: here
-     case 11:  dest[10] = src[10];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:45:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 11:  dest[10] = src[10];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:46:5: note: here
-     case 10:  dest[ 9] = src[ 9];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:46:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 10:  dest[ 9] = src[ 9];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:47:5: note: here
-     case  9:  dest[ 8] = src[ 8];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:47:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  9:  dest[ 8] = src[ 8];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:48:5: note: here
-     case  8:  dest[ 7] = src[ 7];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:48:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  8:  dest[ 7] = src[ 7];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:49:5: note: here
-     case  7:  dest[ 6] = src[ 6];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:49:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  7:  dest[ 6] = src[ 6];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:50:5: note: here
-     case  6:  dest[ 5] = src[ 5];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:50:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  6:  dest[ 5] = src[ 5];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:51:5: note: here
-     case  5:  dest[ 4] = src[ 4];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:51:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  5:  dest[ 4] = src[ 4];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:52:5: note: here
-     case  4:  dest[ 3] = src[ 3];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:52:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  4:  dest[ 3] = src[ 3];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:53:5: note: here
-     case  3:  dest[ 2] = src[ 2];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:53:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  3:  dest[ 2] = src[ 2];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:54:5: note: here
-     case  2:  dest[ 1] = src[ 1];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:54:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  2:  dest[ 1] = src[ 1];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:55:5: note: here
-     case  1:  dest[ 0] = src[ 0];
-     ^~~~
-In file included from C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo:463:0,
-                 from C:\Users\Administrator\Desktop\UWB\network\RTLSClient.h:29,
-                 from C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:13:
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp: In static member function 'static void arma::gemm_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply(arma::Mat<eT2>&, const TA&, const TB&, eT, eT) [with eT = double; TA = arma::Mat<double>; TB = arma::Mat<double>; bool do_trans_A = false; bool use_alpha = true; bool use_beta = false]':
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp:39:73: warning: this statement may fall through [-Wimplicit-fallthrough=]
-       case  4:  gemv_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply( C.colptr(3), A, B.colptr(3), alpha, beta );
-                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp:40:7: note: here
-       case  3:  gemv_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply( C.colptr(2), A, B.colptr(2), alpha, beta );
-       ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp:40:73: warning: this statement may fall through [-Wimplicit-fallthrough=]
-       case  3:  gemv_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply( C.colptr(2), A, B.colptr(2), alpha, beta );
-                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp:41:7: note: here
-       case  2:  gemv_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply( C.colptr(1), A, B.colptr(1), alpha, beta );
-       ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp:41:73: warning: this statement may fall through [-Wimplicit-fallthrough=]
-       case  2:  gemv_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply( C.colptr(1), A, B.colptr(1), alpha, beta );
-                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp:42:7: note: here
-       case  1:  gemv_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply( C.colptr(0), A, B.colptr(0), alpha, beta );
-       ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp: In static member function 'static void arma::gemm_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply(arma::Mat<eT2>&, const TA&, const TB&, eT, eT) [with eT = double; TA = arma::Mat<double>; TB = arma::Mat<double>; bool do_trans_A = false; bool use_alpha = false; bool use_beta = false]':
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp:39:73: warning: this statement may fall through [-Wimplicit-fallthrough=]
-       case  4:  gemv_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply( C.colptr(3), A, B.colptr(3), alpha, beta );
-                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp:40:7: note: here
-       case  3:  gemv_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply( C.colptr(2), A, B.colptr(2), alpha, beta );
-       ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp:40:73: warning: this statement may fall through [-Wimplicit-fallthrough=]
-       case  3:  gemv_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply( C.colptr(2), A, B.colptr(2), alpha, beta );
-                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp:41:7: note: here
-       case  2:  gemv_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply( C.colptr(1), A, B.colptr(1), alpha, beta );
-       ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp:41:73: warning: this statement may fall through [-Wimplicit-fallthrough=]
-       case  2:  gemv_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply( C.colptr(1), A, B.colptr(1), alpha, beta );
-                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/mul_gemm.hpp:42:7: note: here
-       case  1:  gemv_emul_tinysq<do_trans_A, use_alpha, use_beta>::apply( C.colptr(0), A, B.colptr(0), alpha, beta );
-       ^~~~
-In file included from C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo:476:0,
-                 from C:\Users\Administrator\Desktop\UWB\network\RTLSClient.h:29,
-                 from C:\Users\Administrator\Desktop\UWB\network\RTLSClient.cpp:13:
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp: In static member function 'static void arma::arrayops::copy_small(eT*, const eT*, arma::uword) [with eT = arma::mat_injector_row<double>*]':
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:40:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 16:  dest[15] = src[15];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:41:5: note: here
-     case 15:  dest[14] = src[14];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:41:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 15:  dest[14] = src[14];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:42:5: note: here
-     case 14:  dest[13] = src[13];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:42:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 14:  dest[13] = src[13];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:43:5: note: here
-     case 13:  dest[12] = src[12];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:43:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 13:  dest[12] = src[12];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:44:5: note: here
-     case 12:  dest[11] = src[11];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:44:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 12:  dest[11] = src[11];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:45:5: note: here
-     case 11:  dest[10] = src[10];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:45:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 11:  dest[10] = src[10];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:46:5: note: here
-     case 10:  dest[ 9] = src[ 9];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:46:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case 10:  dest[ 9] = src[ 9];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:47:5: note: here
-     case  9:  dest[ 8] = src[ 8];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:47:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  9:  dest[ 8] = src[ 8];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:48:5: note: here
-     case  8:  dest[ 7] = src[ 7];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:48:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  8:  dest[ 7] = src[ 7];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:49:5: note: here
-     case  7:  dest[ 6] = src[ 6];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:49:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  7:  dest[ 6] = src[ 6];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:50:5: note: here
-     case  6:  dest[ 5] = src[ 5];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:50:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  6:  dest[ 5] = src[ 5];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:51:5: note: here
-     case  5:  dest[ 4] = src[ 4];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:51:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  5:  dest[ 4] = src[ 4];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:52:5: note: here
-     case  4:  dest[ 3] = src[ 3];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:52:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  4:  dest[ 3] = src[ 3];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:53:5: note: here
-     case  3:  dest[ 2] = src[ 2];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:53:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  3:  dest[ 2] = src[ 2];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:54:5: note: here
-     case  2:  dest[ 1] = src[ 1];
-     ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:54:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
-     case  2:  dest[ 1] = src[ 1];
-               ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/arrayops_meat.hpp:55:5: note: here
-     case  1:  dest[ 0] = src[ 0];
-     ^~~~
-mingw32-make[1]: *** [Makefile.Debug:13596: debug/RTLSClient.o] Error 1
-In file included from C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo:540:0,
-                 from C:\Users\Administrator\Desktop\UWB\network/RTLSClient.h:29,
-                 from C:\Users\Administrator\Desktop\UWB\views\ViewSettingsWidget.h:37,
-                 from C:\Users\Administrator\Desktop\UWB\views\GraphicsWidget.h:21,
-                 from C:\Users\Administrator\Desktop\UWB\views\ViewSettingsWidget.cpp:22:
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/op_find_meat.hpp: In static member function 'static arma::uword arma::op_find::helper(arma::Mat<unsigned int>&, const arma::mtOp<unsigned int, T1, op_type>&, typename arma::arma_op_rel_only<op_type>::result, typename arma::arma_not_cx<typename T1::elem_type>::result)':
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/op_find_meat.hpp:119:7: warning: this 'else' clause does not guard... [-Wmisleading-indentation]
-       else not_zero_i = false;
-       ^~~~
-C:\Users\Administrator\Desktop\UWB\armadillo-3.930.0\include/armadillo_bits/op_find_meat.hpp:121:12: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'else'
-            if(is_same_type<op_type, op_rel_lt_pre   >::yes)  { not_zero_j = (val <  tpj); }
-            ^~
-C:\Users\Administrator\Desktop\UWB\views\ViewSettingsWidget.cpp: In constructor 'ViewSettingsWidget::ViewSettingsWidget(QWidget*)':
-C:\Users\Administrator\Desktop\UWB\views\ViewSettingsWidget.cpp:211:12: warning: unused variable 'c_h3d' [-Wunused-variable]
-     double c_h3d = 0.1;
-            ^~~~~
-C:\Users\Administrator\Desktop\UWB\views\ViewSettingsWidget.cpp: In member function 'void ViewSettingsWidget::canvesFontSizeValueChanged(int)':
-C:\Users\Administrator\Desktop\UWB\views\ViewSettingsWidget.cpp:677:57: warning: unused parameter 'value' [-Wunused-parameter]
- void ViewSettingsWidget::canvesFontSizeValueChanged(int value)
-                                                         ^~~~~
-C:\Users\Administrator\Desktop\UWB\views\ViewSettingsWidget.cpp: In member function 'void ViewSettingsWidget::on_showNavigationMode_stateChanged(int)':
-C:\Users\Administrator\Desktop\UWB\views\ViewSettingsWidget.cpp:1270:13: warning: unused variable 'size' [-Wunused-variable]
-         int size = anchorPosList.size();
-             ^~~~
-C:\Users\Administrator\Desktop\UWB\views\ViewSettingsWidget.cpp: In member function 'void ViewSettingsWidget::tagTableClicked(int, int)':
-C:\Users\Administrator\Desktop\UWB\views\ViewSettingsWidget.cpp:1421:53: warning: unused parameter 'c' [-Wunused-parameter]
- void ViewSettingsWidget::tagTableClicked(int r, int c)
-                                                     ^
-mingw32-make[1]: Leaving directory 'C:/Users/Administrator/Desktop/build-TREKdisplay-Desktop_Qt_5_14_2_MinGW_32_bit-Debug'
-mingw32-make: *** [Makefile:45: debug] Error 2
-13:50:12: 进程"C:\Qt\Qt5.14.2\Tools\mingw730_32\bin\mingw32-make.exe"退出，退出代码 2 。
-Error while building/deploying project TREKdisplay (kit: Desktop Qt 5.14.2 MinGW 32-bit)
-When executing step "Make"
+14:24:51: Starting C:\Users\Administrator\Desktop\build-TREKdisplay-Desktop_Qt_5_14_2_MinGW_32_bit-Debug\debug\lanague.exe ...
+QMetaObject::connectSlotsByName: No matching signal for on_Tag_size_valueChanged(double)
+Testing Docker: "docker" Exit code: 0 Error: "Process failed to start: 系统找不到指定的文件。" Stderr: "" Stdout: ""
+Testing Docker: "docker.exe" Exit code: 0 Error: "Process failed to start: 系统找不到指定的文件。" Stderr: "" Stdout: ""
+Testing Docker: "C:/Program Files/Docker/Docker/resources/bin/docker.exe" Exit code: 0 Error: "Process failed to start: 系统找不到指定的文件。" Stderr: "" Stdout: ""
+Testing Docker: "C:/ProgramData/chocolatey/bin/docker.exe" Exit code: 0 Error: "Process failed to start: 系统找不到指定的文件。" Stderr: "" Stdout: ""
+Docker not found in any location
+onReady()
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+Connection disconnected
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+close serial port
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+Connection successful
+RTLSClient::connectionStateChanged  2
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+mysave = "\r\n**********************DEVICE CONFIG**********************\r\n* model = LD150\r\n* firmware = V72\r\n* role = ANCHOR\r\n* addr = 1\r\n* blink = 0\r\n* max_anc_num = 4\r\n* max_tag_num = 4\r\n* uwb_data_rate = 110K\r\n* channel = CH2\r\n* update_frequency = 8Hz\r\n* update_Period = 112ms\r\n* kalmanfilter = 1\r\n* ant_dly = 16485\r\n* tx_power = 1f1f1f1f\r\n* use_ext_eeprom = 1\r\n* use_imu = 9\r\n* group_id = 0\r\n* pan_id = 57034\r\n***************************END***************************\r\nInitializing ICM-20948 ...\r\n"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+COM port Disconnected
+Connection disconnected
+RTLSClient::connectionStateChanged  0
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+Connection successful
+RTLSClient::connectionStateChanged  2
+mysave = "\r\n**********************DEVICE CONFIG**********************\r\n* model = LD150\r\n* firmware = V72\r\n* role = ANCHOR\r\n* addr = 1\r\n* blink = 0\r\n* max_anc_num = 4\r\n* max_tag_num = 4\r\n* uwb_data_rate = 110K\r\n* channel = CH2\r\n* update_frequency = 8Hz\r\n* update_Period = 112ms\r\n* kalmanfilter = 1\r\n* ant_dly = 16485\r\n* tx_power = 1f1f1f1f\r\n* use_ext_eeprom = 1\r\n* use_imu = 9\r\n* group_id = 0\r\n* pan_id = 57034\r\n***************************END***************************\r\nInitializing ICM-20948 ...\r\n"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.2.147:8080/rtls"
+QNativeSocketEngine::write() was not called in QAbstractSocket::ConnectedState
+[WebSocket] Error: QAbstractSocket::UnfinishedSocketOperationError "Invalid socket descriptor"
+[WebSocket] Disconnected from "ws://192.168.2.147:8080/rtls"
+[WebSocket] Connecting to "ws://192.168.1.180:8080/rtls"
+[WebSocket] Connected to "ws://192.168.1.180:8080/rtls"
+"Add new Tag: 0x0" 0
+colourH:: 0.668034
+Insert Tag 0 "0x0" "Tag 0"
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+err1
+QQuickWidget::invalidateRenderControl could not make context current
+QQuickWidget::invalidateRenderControl could not make context current
+[WebSocket] Disconnected from "ws://192.168.1.180:8080/rtls"
+14:44:14: C:\Users\Administrator\Desktop\build-TREKdisplay-Desktop_Qt_5_14_2_MinGW_32_bit-Debug\debug\lanague.exe exited with code 0
