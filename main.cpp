@@ -12,6 +12,7 @@
 
 #include "RTLSDisplayApplication.h"
 #include "mainwindow.h"
+#include "network/WebSocketClient.h"
 #include <QApplication>
 #include <QTextCodec>
 #include <QStyleFactory>

@@ -147,6 +147,7 @@ private slots:
     void anchorTableChanged(int r, int c);
     void tagTableClicked(int r, int c);
     void on_BTN_sendSocket_clicked();
+    void on_BTN_ws_connect_clicked();
     void showExplainBtnClicked();
     void onCadToPngClicked();
 

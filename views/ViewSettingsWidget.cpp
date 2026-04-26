@@ -21,6 +21,7 @@
 #include "GraphicsView.h"
 #include "GraphicsWidget.h"
 #include "mainwindow.h"
+#include "network/WebSocketClient.h"
 #include <QTimer>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -275,6 +276,27 @@ void ViewSettingsWidget::onReady()
     timer->start(1000); // 使用定时器 1秒读取一次后台设备管理器
 
     connectionStateChanged(SerialConnection::Disconnected);
+
+    // WebSocket UI signal connections
+    WebSocketClient *ws = RTLSDisplayApplication::webSocketClient();
+    if (ws) {
+        connect(ws, &WebSocketClient::connected, this, [this]() {
+            ui->BTN_ws_connect->setText(language ? "断开" : "Disconnect");
+            ui->label_ws_status->setText(language ? "状态: 已连接" : "Status: Connected");
+        });
+        connect(ws, &WebSocketClient::disconnected, this, [this]() {
+            ui->BTN_ws_connect->setText(language ? "连接" : "Connect");
+            ui->label_ws_status->setText(language ? "状态: 未连接" : "Status: Disconnected");
+        });
+        connect(ws, &WebSocketClient::connectionError, this, [this](const QString &err) {
+            ui->BTN_ws_connect->setText(language ? "连接" : "Connect");
+            ui->label_ws_status->setText((language ? "状态: 错误 - " : "Status: Error - ") + err);
+        });
+        if (ws->isConnected()) {
+            ui->BTN_ws_connect->setText(language ? "断开" : "Disconnect");
+            ui->label_ws_status->setText(language ? "状态: 已连接" : "Status: Connected");
+        }
+    }
 
     m_setTimer =new QTimer;
 }
@@ -1880,6 +1902,23 @@ void ViewSettingsWidget::onCadToPngClicked()
         ui->cadToPngBtn->setText("CAD(DXF) → PNG 转换...");
         QMessageBox::critical(this, "错误", "无法启动 python3，请确认 Python 3 已安装并在 PATH 中。");
         proc->deleteLater();
+    }
+}
+
+void ViewSettingsWidget::on_BTN_ws_connect_clicked()
+{
+    WebSocketClient *ws = RTLSDisplayApplication::webSocketClient();
+    if (!ws) return;
+
+    if (ws->isConnected()) {
+        ws->disconnectFromServer();
+    } else {
+        QString url = ui->LE_ws_url->text();
+        if (url.isEmpty()) {
+            url = "ws://localhost:8080/rtls";
+            ui->LE_ws_url->setText(url);
+        }
+        ws->connectToServer(url);
     }
 }
 

@@ -124,7 +124,7 @@ public:
 
     void addMissingAnchors(void);
 
-    void trilaterateTag(int tid, int seq, int idx);
+    void trilaterateTag(int tid, int seq, int idx, int rx_power, int alarm);
     int processTagRangeReports(int tid, int *range, int lnum, int seq, int mask, int rx_power, int alarm);
     void processAnchRangeReport(int aid, int tid, int range, int lnum, int seq);
 

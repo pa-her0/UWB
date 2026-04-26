@@ -1040,6 +1040,95 @@
         <string>定位算法</string>
        </property>
       </widget>
+      <widget class="Line" name="line_ws">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>660</y>
+         <width>211</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_ws_title">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>650</y>
+         <width>71</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>WebSocket</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_ws_url">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>680</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>地址</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="LE_ws_url">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>680</y>
+         <width>121</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ws://localhost:8080/rtls</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="BTN_ws_connect">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>680</y>
+         <width>51</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>连接</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_ws_status">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>705</y>
+         <width>221</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>状态: 未连接</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tab">
       <attribute name="title">

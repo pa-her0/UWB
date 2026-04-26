@@ -1249,7 +1249,7 @@ void RTLSClient::CheckCommFrame(const char* pbuf, int revLen)//串口有效数�
     int idx = processTagRangeReports(tid, range, lnum, seq, mask, rx_power, alarm); //this is received when tags range to anchors
     if(idx != -1)
     {
-        trilaterateTag(tid, seq, idx);
+        trilaterateTag(tid, seq, idx, rx_power, alarm);
         updateTagLog(rangetime);
 
     }
@@ -1636,7 +1636,7 @@ int RTLSClient::processTagRangeReports(int tid, int *range, int lnum, int seq, i
 
 
 
-void RTLSClient::trilaterateTag(int tid, int seq, int idx)
+void RTLSClient::trilaterateTag(int tid, int seq, int idx, int rx_power, int alarm)
 {
     int count = 0;
     //bool trilaterate = false;

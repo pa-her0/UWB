@@ -57,7 +57,7 @@ RTLSDisplayApplication::RTLSDisplayApplication(int &argc, char **argv) : QApplic
     // Initialize InfluxDB write service
     _influxWriteService = nullptr; // Will be initialized after UwbDataVizWidget is ready
 
-    // Initialize WebSocket client (connection URL is configured via command line or UI)
+    // Initialize WebSocket client (connection is controlled via UI or command line)
     _webSocketClient = new WebSocketClient(this);
 
     _ready = true;
