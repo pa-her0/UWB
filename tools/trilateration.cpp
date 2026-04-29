@@ -29,8 +29,6 @@
 #include <eigen/Eigenvalues>
 #include <QDebug>
 #include <algorithm>
-using Eigen::Vector3d;
-using Eigen::Matrix3d;
 using Eigen::SelfAdjointEigenSolver;
 /* Largest nonnegative number still considered zero */
 #define   MAXZERO  0.001
@@ -606,29 +604,36 @@ vec3d cross(const vec3d vector1, const vec3d vector2)
     return v;
 }
 
-double gdoprate(const Vector3d& tag,
-                const Vector3d& p1,
-                const Vector3d& p2,
-                const Vector3d& p3)
+double gdoprate(const vec3d& tag,
+                const vec3d& p1,
+                const vec3d& p2,
+                const vec3d& p3)
 {
     constexpr double epsilon = 1e-8;
     constexpr double GDOP_MIN = 1.0;    // 理论最优GDOP值（对应返回0）
     constexpr double GDOP_MAX = 10.0;   // 系统容忍的最差GDOP值（对应返回1）
 
-    // ================= 几何矩阵构建 =================
-    Matrix3d H;
+    // Use dynamic-size Eigen matrices here.
+    // This avoids MinGW 32-bit Debug crashes caused by fixed-size Eigen
+    // objects requiring stack alignment on the 4-anchor GDOP path.
+    Eigen::MatrixXd H(3, 3);
     bool has_singularity = false;
 
     // 带异常检测的锚点处理
-    auto process_anchor = [&](int row, const Vector3d& anchor) {
-        Vector3d vec = anchor - tag;
-        const double h_norm = vec.norm();
+    auto process_anchor = [&](int row, const vec3d& anchor) {
+        const double dx = anchor.x - tag.x;
+        const double dy = anchor.y - tag.y;
+        const double dz = anchor.z - tag.z;
+        const double h_norm = std::sqrt(dx * dx + dy * dy + dz * dz);
 
         if (h_norm < epsilon) {
             has_singularity = true;  // 标记奇异状态
             return;
         }
-        H.row(row) = vec / h_norm;   // 单位方向向量
+
+        H(row, 0) = dx / h_norm;
+        H(row, 1) = dy / h_norm;
+        H(row, 2) = dz / h_norm;
     };
 
     process_anchor(0, p1);
@@ -639,7 +644,7 @@ double gdoprate(const Vector3d& tag,
     if (has_singularity) return 1.0;
 
     // ============== 矩阵特征值分解 ================
-    SelfAdjointEigenSolver<Matrix3d> solver(H.transpose() * H);
+    SelfAdjointEigenSolver<Eigen::MatrixXd> solver(H.transpose() * H);
     if (solver.info() != Eigen::Success) return 1.0; // 分解失败返回最差
 
     const auto& eig = solver.eigenvalues();
@@ -1094,10 +1099,6 @@ int deca_3dlocate ( vec3d     *const solution1,
 
         if (success)
         {
-            Vector3d solutionVec(solution.x,solution.y,solution.z);
-                        Vector3d p1Vec(p1.x,p1.y,p1.z);
-                        Vector3d p2Vec(p2.x,p2.y,p2.z);
-                        Vector3d p3Vec(p3.x,p3.y,p3.z);
             switch (result)
             {
             case TRIL_3SPHERES:
@@ -1110,7 +1111,7 @@ int deca_3dlocate ( vec3d     *const solution1,
 
             case TRIL_4SPHERES:
                 /* calculate the new gdop */
-                gdoprate_compare1    = gdoprate(solutionVec, p1Vec, p2Vec, p3Vec);
+                gdoprate_compare1    = gdoprate(solution, p1, p2, p3);
                 qDebug()<<"当前组合:"<<(combination_counter==4?"1,2,3":combination_counter==3?"2,3,4":combination_counter==2?"3,4,1":combination_counter==1?"4,1,2":0)<<"计算成功，扩径次数："<<overlook_count;
                 /* compare and swap with the better result */
                 if (gdoprate_compare1 <= gdoprate_compare2) {
@@ -1354,7 +1355,6 @@ int GetLocation(vec3d *best_solution, vec3d* anchorArray, int *distanceArray, in
         //qDebug("dimensional = 22222");
         if(valid_anc_count < 3)
         {
-            qDebug() << "err1";
             return -1;
         }
 
